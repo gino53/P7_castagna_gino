@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
+  title!: string;
+  description!: string;
+  createdDate!: Date;
+  like!: number;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.title = 'Post';
+    this.description = 'Premier post';
+    this.createdDate = new Date();
+    this.like = 5;
   }
 
 }
