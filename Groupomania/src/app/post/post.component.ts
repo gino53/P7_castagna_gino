@@ -23,4 +23,7 @@ export class PostComponent implements OnInit {
     this.like = 5;
   }
 
+  onAddLike() {
+    this.like++;
+  }
 }
