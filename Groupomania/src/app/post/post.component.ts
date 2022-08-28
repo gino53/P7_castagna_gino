@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Post } from '../models/post.model';
 
 @Component({
   selector: 'app-post',
@@ -6,24 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
+  @Input() post!: Post;
 
-  title!: string;
-  imageUrl!: string;
-  createdDate!: Date;
-  description!: string;
-  like!: number;
+  buttonText!: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    this.title = 'Post';
-    this.imageUrl = 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg';
-    this.createdDate = new Date();
-    this.description = 'Premier post';
-    this.like = 5;
+    this.buttonText = 'Like';
   }
-
-  onAddLike() {
-    this.like++;
+  onLike() {
+    if (this.buttonText === 'Like') {
+      this.post.like++;
+      this.buttonText = 'Like+';
+    } else {
+      this.post.like--;
+      this.buttonText = 'Like';
+    }
   }
 }
