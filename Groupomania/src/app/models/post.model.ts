@@ -1,8 +1,8 @@
 export class Post {
-    constructor(public title: string,
-        public imageUrl: string,
-        public createdDate: Date,
-        public description: string,
-        public like: number) {
-    }
+    title!: string;
+    description!: string;
+    imageUrl!: string;
+    createdDate!: Date;
+    like!: number;
+    location?: string;
 }
