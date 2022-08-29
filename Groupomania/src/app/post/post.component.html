@@ -6,6 +6,6 @@
     <p>{{ post.description }}</p>
     <p>
         <button (click)="onLike()">{{ buttonText }}</button>
-        ❤️ {{ post.like }}
+        <span [ngStyle]="{ color: 'rgb(0, ' + post.like + ', 0)' }">❤️ {{ post.like }}</span>
     </p>
 </div>
