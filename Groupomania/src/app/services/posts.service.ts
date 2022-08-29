@@ -60,4 +60,8 @@ export class PostsService {
             location: 'Lyon'
         }
     ];
+
+    getAllPosts(): Post[] {
+        return this.posts;
+    }
 }
