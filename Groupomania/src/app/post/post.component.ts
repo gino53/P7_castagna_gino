@@ -19,9 +19,9 @@ export class PostComponent implements OnInit {
   }
 
   onAddLike() {
-    if (this.buttonText === 'Like !') {
+    if (this.buttonText === 'Like') {
       this.postsService.likePostById(this.post.id, 'like');
-      this.buttonText = 'Like+';
+      this.buttonText = 'Like !';
     } else {
       this.postsService.likePostById(this.post.id, 'dislike');
       this.buttonText = 'Like';

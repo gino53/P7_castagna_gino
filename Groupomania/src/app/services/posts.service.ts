@@ -82,6 +82,6 @@ export class PostsService {
 
     likePostById(postId: number, likeType: 'like' | 'dislike'): void {
         const post = this.getPostById(postId);
-        likeType === 'like' ? post.likes-- : post.likes++;
+        likeType === 'like' ? post.likes++ : post.likes--;
     }
 }

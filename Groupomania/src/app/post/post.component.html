@@ -1,4 +1,4 @@
-<div class="post-card liked" [ngClass]="{ liked: buttonText === 'Like+'}">
+<div class="post-card liked" [ngClass]="{ liked: buttonText === 'Like !'}">
     <h2>{{ post.title | titlecase }}</h2>
     <img [src]="post.imageUrl" [alt]="post.title">
     <p *ngIf="post.location">Photo prise à {{ post.location }}</p>
