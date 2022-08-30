@@ -5,7 +5,7 @@
     <p>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</p>
     <p>{{ post.description }}</p>
     <p>
-        <button (click)="onLike()">{{ buttonText }}</button>
-        <span [ngStyle]="{ color: 'rgb(0, ' + post.like + ', 0)' }">❤️ {{ post.like }}</span>
+        <button (click)="onAddLike()">{{ buttonText }}</button>
+        <span [ngStyle]="{ color: 'rgb(0, ' + post.likes + ', 0)' }">❤️ {{ post.likes }}</span>
     </p>
 </div>

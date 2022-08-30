@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../models/post.model';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-post',
@@ -11,17 +12,18 @@ export class PostComponent implements OnInit {
 
   buttonText!: string;
 
-  constructor() { }
+  constructor(private postsService: PostsService) {}
 
   ngOnInit(): void {
     this.buttonText = 'Like';
   }
-  onLike() {
-    if (this.buttonText === 'Like') {
-      this.post.like++;
+
+  onAddLike() {
+    if (this.buttonText === 'Like !') {
+      this.postsService.likePostById(this.post.id, 'like');
       this.buttonText = 'Like+';
     } else {
-      this.post.like--;
+      this.postsService.likePostById(this.post.id, 'dislike');
       this.buttonText = 'Like';
     }
   }
