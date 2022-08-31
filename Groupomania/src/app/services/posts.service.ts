@@ -8,62 +8,62 @@ export class PostsService {
     posts: Post[] = [
         {
             id: 1,
+            createdDate: new Date(),
             title: 'Manège',
             imageUrl: 'https://cdn.pixabay.com/photo/2022/08/19/01/06/ferris-wheel-7395944_960_720.jpg',
-            createdDate: new Date(),
+            location: 'Paris',
             description: 'Grande-roue',
-            likes: 0,
-            location: 'Paris'
+            likes: 0
         },
 
         {
             id: 2,
+            createdDate: new Date(),
             title: 'Papillon',
             imageUrl: 'https://cdn.pixabay.com/photo/2022/08/15/12/47/moth-7387787_960_720.jpg',
-            createdDate: new Date(),
+            location: 'Bordeaux',
             description: 'Insecte',
-            likes: 0,
-            location: 'Bordeaux'
+            likes: 0
         },
 
         {
             id: 3,
+            createdDate: new Date(),
             title: 'Chien',
             imageUrl: 'https://cdn.pixabay.com/photo/2022/07/17/12/12/pembroke-welsh-corgi-7327285_960_720.jpg',
-            createdDate: new Date(),
+            location: 'Lyon',
             description: 'Animal de compagnie',
-            likes: 0,
-            location: 'Lyon'
+            likes: 0
         },
 
         {
             id: 4,
+            createdDate: new Date(),
             title: 'Manège',
             imageUrl: 'https://cdn.pixabay.com/photo/2022/08/19/01/06/ferris-wheel-7395944_960_720.jpg',
-            createdDate: new Date(),
+            location: 'Paris',
             description: 'Grande-roue',
-            likes: 0,
-            location: 'Paris'
+            likes: 0
         },
 
         {
             id: 5,
+            createdDate: new Date(),
             title: 'Papillon',
             imageUrl: 'https://cdn.pixabay.com/photo/2022/08/15/12/47/moth-7387787_960_720.jpg',
-            createdDate: new Date(),
+            location: 'Bordeaux',
             description: 'Insecte',
-            likes: 0,
-            location: 'Bordeaux'
+            likes: 0
         },
 
         {
             id: 6,
+            createdDate: new Date(),
             title: 'Chien',
             imageUrl: 'https://cdn.pixabay.com/photo/2022/07/17/12/12/pembroke-welsh-corgi-7327285_960_720.jpg',
-            createdDate: new Date(),
+            location: 'Lyon',
             description: 'Animal de compagnie',
-            likes: 0,
-            location: 'Lyon'
+            likes: 0
         }
     ];
 

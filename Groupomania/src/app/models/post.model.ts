@@ -1,9 +1,9 @@
 export class Post {
     id!: number;
-    title!: string;
-    description!: string;
-    imageUrl!: string;
     createdDate!: Date;
-    likes!: number;
+    title!: string;
+    imageUrl!: string;
     location?: string;
+    description!: string;
+    likes!: number;
 }

@@ -6,10 +6,6 @@
             <input type="text" id="title" formControlName="title">
         </div>
         <div class="form-group">
-            <label for="description">Description</label>
-            <textarea type="text" id="description" formControlName="description" rows="4"></textarea>
-        </div>
-        <div class="form-group">
             <label for="title">URL de l'image</label>
             <input type="text" id="imageUrl" formControlName="imageUrl">
         </div>
@@ -17,8 +13,19 @@
             <label for="location">Lieu</label>
             <input type="text" id="location" formControlName="location">
         </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" id="description" formControlName="description" rows="4"></textarea>
+        </div>
         <div class="action-buttons">
             <button type="submit" (click)="onSubmitForm()">Enregistrer</button>
         </div>
     </form>
+</div>
+<div class="post-card" *ngIf="postPreview$ | async as post">
+    <p>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</p>
+    <h2>{{ post.title | titlecase }}</h2>
+    <img [src]="post.imageUrl" [alt]="post.title">
+    <p *ngIf="post.location">Photo prise à {{ post.location }}</p>
+    <p>{{ post.description }}</p>
 </div>
