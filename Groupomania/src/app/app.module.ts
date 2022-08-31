@@ -9,6 +9,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     PostComponent,
     PostListComponent,
     HeaderComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
