@@ -27,5 +27,11 @@ a {
 }
 
 i {
+    margin-top: 1.625rem;
+    color: #FD2D01;
+    cursor: pointer;
 
+    &:hover {
+        color: #FFD7D7;
+    }
 }
