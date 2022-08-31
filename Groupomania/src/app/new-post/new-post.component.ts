@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { map, Observable } from 'rxjs';
 import { Post } from '../models/post.model';
 
@@ -12,15 +12,19 @@ export class NewPostComponent implements OnInit {
 
   postForm!: FormGroup;
   postPreview$!: Observable<Post>;
+  urlRegex!: RegExp;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
     this.postForm = this.formBuilder.group({
-      title: [null],
-      imageUrl: [null],
+      title: [null, Validators.required],
+      imageUrl: [null, [Validators.required, Validators.pattern(this.urlRegex)]],
       location: [null],
-      description: [null]
+      description: [null, Validators.required]
+    }, {
+      updateOn: 'blur'
     });
 
     this.postPreview$ = this.postForm.valueChanges.pipe(

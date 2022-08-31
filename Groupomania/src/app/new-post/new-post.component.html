@@ -18,7 +18,7 @@
             <textarea type="text" id="description" formControlName="description" rows="4"></textarea>
         </div>
         <div class="action-buttons">
-            <button type="submit" (click)="onSubmitForm()">Enregistrer</button>
+            <button type="submit" (click)="onSubmitForm()" [disabled]="postForm.invalid">Enregistrer</button>
         </div>
     </form>
 </div>
