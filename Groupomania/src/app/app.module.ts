@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SinglePostComponent } from './single-post/single-post.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NewPostComponent } from './new-post/new-post.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { SinglePostComponent } from './single-post/single-post.component';
     PostListComponent,
     HeaderComponent,
     LandingPageComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent]
