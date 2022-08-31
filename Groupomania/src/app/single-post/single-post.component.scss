@@ -1,13 +1,19 @@
+i {
+    padding-left: 0.625rem;
+    color: black;
+}
+
 .post-card {
     box-sizing: border-box;
     width: 50%;
-    margin: 20px auto;
-    padding: 10px 30px;
+    margin: 1.25rem auto;
+    padding: 0.625rem 1.875rem;
+    border-radius: 5%;
     background: #FFD7D7;
     box-shadow: lightgray 4px 4px 20px;
 
     h2 {
-        margin-bottom: 0;
+        margin-bottom: 0.375rem;
     }
 
     img {
