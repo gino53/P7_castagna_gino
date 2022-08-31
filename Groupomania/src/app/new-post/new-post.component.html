@@ -1,1 +1,24 @@
-<p>new-post works!</p>
+<div class="form-card">
+    <h2>NOUVEAU POST</h2>
+    <form [formGroup]="postForm">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" id="title" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" id="description" formControlName="description" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="title">URL de l'image</label>
+            <input type="text" id="imageUrl" formControlName="imageUrl">
+        </div>
+        <div class="form-group">
+            <label for="location">Lieu</label>
+            <input type="text" id="location" formControlName="location">
+        </div>
+        <div class="action-buttons">
+            <button type="submit" (click)="onSubmitForm()">Enregistrer</button>
+        </div>
+    </form>
+</div>
