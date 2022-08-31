@@ -3,6 +3,7 @@
     width: 50%;
     margin: 20px auto;
     padding: 10px 30px;
+    background: #FFD7D7;
     box-shadow: lightgray 4px 4px 20px;
 
     h2 {
@@ -11,6 +12,14 @@
 
     img {
         width: 100%;
+    }
+
+    #location {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        font-weight: 300;
+        font-size: 16px;
     }
 
     p {

@@ -3,6 +3,7 @@
   width: 50%;
   margin: 20px auto;
   padding: 10px 30px;
+  background: #FFD7D7;
   box-shadow: lightgray 4px 4px 20px;
 
   h2 {
@@ -16,19 +17,5 @@
   p {
     font-weight: 300;
     font-size: 16px;
-  }
-}
-
-.liked {
-  background-color: rgba(lightgreen, 0.4);
-  color: darkgreen;
-
-  button {
-    box-shadow: lightgreen 3px 3px 7px;
-    color: darkgreen;
-
-    &:active {
-      box-shadow: lightgreen 0 0 5px;
-    }
   }
 }

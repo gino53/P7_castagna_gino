@@ -3,7 +3,7 @@
     <h2>{{ post.title | titlecase }}</h2>
     <a routerLink="/posts">Back</a>
     <img [src]="post.imageUrl" [alt]="post.title">
-    <p *ngIf="post.location">Photo prise à {{ post.location }}</p>
+    <p id="location" *ngIf="post.location">Photo prise à {{ post.location }}</p>
     <p>{{ post.description }}</p>
     <p>
         <button (click)="onAddLike()">{{ buttonText }}</button>
