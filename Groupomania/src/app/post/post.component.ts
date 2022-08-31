@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from '../models/post.model';
 import { PostsService } from '../services/posts.service';
 
@@ -12,7 +13,8 @@ export class PostComponent implements OnInit {
 
   buttonText!: string;
 
-  constructor(private postsService: PostsService) {}
+  constructor(private postsService: PostsService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.buttonText = 'Like';
@@ -26,5 +28,9 @@ export class PostComponent implements OnInit {
       this.postsService.likePostById(this.post.id, 'dislike');
       this.buttonText = 'Like';
     }
+  }
+
+  onViewPost() {
+    this.router.navigateByUrl(`posts/${this.post.id}`);
   }
 }

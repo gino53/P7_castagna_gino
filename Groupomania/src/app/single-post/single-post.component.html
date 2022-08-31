@@ -1,5 +1,6 @@
 <div class="post-card liked" [ngClass]="{ liked: buttonText === 'Like !'}">
     <h2>{{ post.title | titlecase }}</h2>
+    <a routerLink="/posts">Back</a>
     <img [src]="post.imageUrl" [alt]="post.title">
     <p *ngIf="post.location">Photo prise à {{ post.location }}</p>
     <p>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</p>

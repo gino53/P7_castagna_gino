@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Post } from '../models/post.model';
 import { PostsService } from '../services/posts.service';
 
@@ -8,14 +9,17 @@ import { PostsService } from '../services/posts.service';
   styleUrls: ['./single-post.component.scss']
 })
 export class SinglePostComponent implements OnInit {
-  @Input() post!: Post;
+  post!: Post;
 
   buttonText!: string;
 
-  constructor(private postsService: PostsService) {}
+  constructor(private postsService: PostsService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.buttonText = 'Like';
+    const postId = +this.route.snapshot.params['id'];
+    this.post = this.postsService.getPostById(postId);
   }
 
   onAddLike() {
