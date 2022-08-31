@@ -84,4 +84,14 @@ export class PostsService {
         const post = this.getPostById(postId);
         likeType === 'like' ? post.likes++ : post.likes--;
     }
+
+    addPost(formValue: { title:string, imageUrl: string, location?: string, description: string }): void {
+        const post : Post = {
+            ...formValue,
+            createdDate: new Date(),
+            likes: 0,
+            id: this.posts[this.posts.length - 1].id + 1
+        };
+        this.posts.push(post);
+    }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { Post } from '../models/post.model';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-new-post',
@@ -14,7 +16,9 @@ export class NewPostComponent implements OnInit {
   postPreview$!: Observable<Post>;
   urlRegex!: RegExp;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private postService: PostsService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
@@ -38,6 +42,7 @@ export class NewPostComponent implements OnInit {
   };
 
   onSubmitForm(): void {
-    console.log(this.postForm.value);
+    this.postService.addPost(this.postForm.value);
+    this.router.navigateByUrl('/posts');
   }
 }
