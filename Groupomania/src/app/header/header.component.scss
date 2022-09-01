@@ -1,5 +1,4 @@
 header {
-    height: 30%;
     text-align: center;
     margin-bottom: 20px;
     padding: 10px;
@@ -22,18 +21,11 @@ div {
     align-items: center;
 }
 
-a {
-    color: #FD2D01;
-    text-decoration: none;
-}
-
 i {
-    margin-top: 1.625rem;
-    color: #FD2D01;
+    color: #FFD7D7;
     cursor: pointer;
 
     &:hover {
-        color: #FFD7D7;
-        transform: scale(130%);
+        transform: scale(110%);
     }
 }

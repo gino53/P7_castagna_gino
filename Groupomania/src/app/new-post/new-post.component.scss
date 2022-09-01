@@ -19,6 +19,14 @@
 input,
 textarea {
     width: 50%;
+    height: 30px;
+    border-radius: 1.25rem;
+    border: none;
+    outline: none;
+}
+
+textarea {
+    height: 70px;
 }
 
 .action-buttons {

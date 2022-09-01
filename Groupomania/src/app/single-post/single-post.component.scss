@@ -1,6 +1,9 @@
 i {
     padding-left: 0.625rem;
     color: #FFD7D7;
+    &:hover {
+        transform: scale(110%);
+    }
 }
 
 .post-card {
@@ -31,10 +34,6 @@ i {
     p {
         font-weight: 300;
         font-size: 16px;
-    }
-
-    button:hover {
-        transform: scale(110%);
     }
 }
 
