@@ -23,18 +23,8 @@ div {
 }
 
 a {
-    margin: 0 10px;
     color: #FD2D01;
     text-decoration: none;
-
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
-.active {
-    color: #FFD7D7;
-    text-decoration: underline;
 }
 
 i {
@@ -44,5 +34,6 @@ i {
 
     &:hover {
         color: #FFD7D7;
+        transform: scale(130%);
     }
 }
