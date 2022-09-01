@@ -1,25 +1,11 @@
-.form-card, .post-card {
+.form-card,
+.post-card {
     box-sizing: border-box;
     width: 50%;
-    margin: 20px auto;
-    padding: 10px 30px;
+    margin: 1.25rem auto;
+    padding: 0.625rem 1.875rem;
     border-radius: 1.25rem;
-    box-shadow: lightgray 4px 4px 20px;
-}
-
-.post-card {
-    img {
-        width: 100%;
-    }
-
-    h2 {
-        margin-bottom: 0;
-    }
-
-    p {
-        font-weight: 300;
-        font-size: 16px;
-    }
+    background: #FFD7D7;
 }
 
 .form-group {
@@ -42,4 +28,28 @@ textarea {
 button {
     display: block;
     margin: 20px auto;
+}
+
+.post-card {
+    h2 {
+        margin-bottom: 0.375rem;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 1.25rem;
+    }
+
+    #location {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+        font-weight: 300;
+        font-size: 16px;
+    }
+
+    p {
+        font-weight: 300;
+        font-size: 16px;
+    }
 }
