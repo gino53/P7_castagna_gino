@@ -12,6 +12,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewPostComponent } from './new-post/new-post.component';
+import { HttpInterceptorProviders } from './interceptors';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,10 @@ import { NewPostComponent } from './new-post/new-post.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+    HttpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
