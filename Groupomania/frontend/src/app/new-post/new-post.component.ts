@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Post } from '../models/post.model';
 import { PostsService } from '../services/posts.service';
 
@@ -42,7 +42,8 @@ export class NewPostComponent implements OnInit {
   };
 
   onSubmitForm(): void {
-    this.postService.addPost(this.postForm.value);
-    this.router.navigateByUrl('/posts');
+    this.postService.addPost(this.postForm.value).pipe(
+      tap(() => this.router.navigateByUrl('/posts'))
+    ).subscribe();
   }
 }

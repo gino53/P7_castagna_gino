@@ -9,7 +9,7 @@ import { map, Observable, switchMap } from 'rxjs';
 export class PostsService {
 
     constructor(private http: HttpClient) { }
-    
+
     getAllPosts(): Observable<Post[]> {
         return this.http.get<Post[]>('http://localhost:3000/posts');
     }
@@ -25,19 +25,22 @@ export class PostsService {
                 likes: post.likes + (likeType === 'like' ? 1 : -1)
             })),
             switchMap(updatedPost => this.http.put<Post>(
-                `http://localhost:3000/facesnaps/${postId}`,
-                updatedPost)
+                `http://localhost:3000/posts/${postId}`, updatedPost)
             )
         );
     }
 
-    //addPost(formValue: { title: string, imageUrl: string, location?: string, description: string }): void {
-        //const post: Post = {
-            //...formValue,
-            //createdDate: new Date(),
-            //likes: 0,
-            //id: this.posts[this.posts.length - 1].id + 1
-       // };
-        //this.posts.push(post);
-    //}
+    addPost(formValue: { title: string, imageUrl: string, location?: string, description: string }): Observable<Post> {
+        return this.getAllPosts().pipe(
+            map(posts => [...posts].sort((a: Post, b: Post) => a.id - b.id)),
+            map(sortedPosts => sortedPosts[sortedPosts.length - 1]),
+            map(previousPost => ({
+                ...formValue,
+                id: previousPost.id + 1,
+                createdDate: new Date(),
+                likes: 0
+            })),
+            switchMap(newPost => this.http.post<Post>('http://localhost:3000/posts', newPost))
+        );
+    }
 }
