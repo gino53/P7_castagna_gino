@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, tap } from 'rxjs';
 import { Post } from '../models/post.model';
 import { PostsService } from '../services/posts.service';
 
@@ -9,8 +10,7 @@ import { PostsService } from '../services/posts.service';
   styleUrls: ['./single-post.component.scss']
 })
 export class SinglePostComponent implements OnInit {
-  post!: Post;
-
+  post$!: Observable<Post>;
   buttonText!: string;
 
   constructor(private postsService: PostsService,
@@ -19,16 +19,18 @@ export class SinglePostComponent implements OnInit {
   ngOnInit(): void {
     this.buttonText = 'Like';
     const postId = +this.route.snapshot.params['id'];
-    this.post = this.postsService.getPostById(postId);
+    this.post$ = this.postsService.getPostById(postId);
   }
 
-  onAddLike() {
+  onAddLike(postId: number) {
     if (this.buttonText === 'Like') {
-      this.postsService.likePostById(this.post.id, 'like');
-      this.buttonText = 'Like !';
+      this.post$ = this.postsService.likePostById(postId, 'like').pipe(
+        tap(() => this.buttonText = 'Like !')
+      )
     } else {
-      this.postsService.likePostById(this.post.id, 'dislike');
-      this.buttonText = 'Like';
+      this.post$ = this.postsService.likePostById(postId, 'dislike').pipe(
+        tap(() => this.buttonText = 'Like')
+      );
     }
   }
 }

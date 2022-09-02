@@ -1,31 +1,21 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { interval, Subject } from 'rxjs';
-import { takeUntil, tap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/post.model';
 import { PostsService } from '../services/posts.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.scss']
 })
-export class PostListComponent implements OnInit, OnDestroy {
-  posts!: Post[];
-  private destroy$!: Subject<boolean>;
+export class PostListComponent implements OnInit {
+
+  posts$!: Observable<Post[]>;
 
   constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
-    this.destroy$ = new Subject<boolean>();
-    this.posts = this.postsService.getAllPosts();
-
-    interval(1000).pipe(
-      takeUntil(this.destroy$),
-      tap(console.log)
-    ).subscribe();
+    this.posts$ = this.postsService.getAllPosts();
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next(true);
-  }
 }
