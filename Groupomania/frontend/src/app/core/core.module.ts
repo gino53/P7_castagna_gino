@@ -4,6 +4,7 @@ import { HttpInterceptorProviders } from './interceptors';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import * as fr from '@angular/common/locales/fr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import * as fr from '@angular/common/locales/fr';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   exports: [
     HeaderComponent
