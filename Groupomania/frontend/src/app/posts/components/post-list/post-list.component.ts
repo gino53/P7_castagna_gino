@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../core/models/post.model';
-import { PostsService } from '../core/services/posts.service';
+import { Post } from '../../../core/models/post.model';
+import { PostsService } from '../../../core/services/posts.service';
 import { Observable } from 'rxjs';
 
 @Component({

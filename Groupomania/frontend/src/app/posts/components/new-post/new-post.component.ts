@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map, Observable, tap } from 'rxjs';
-import { Post } from '../core/models/post.model';
-import { PostsService } from '../core/services/posts.service';
+import { Post } from '../../../core/models/post.model';
+import { PostsService } from '../../../core/services/posts.service';
 
 @Component({
   selector: 'app-new-post',
