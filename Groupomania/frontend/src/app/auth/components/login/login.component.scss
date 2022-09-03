@@ -1,0 +1,43 @@
+.form {
+    margin-top: 45vh;
+    transform: translateY(-50%);
+}
+
+.form-card {
+    box-sizing: border-box;
+    width: 50%;
+    margin: 1.25rem auto;
+    padding: 0.625rem 1.875rem;
+    border-radius: 1.25rem;
+    background: #FFD7D7;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 10px auto;
+}
+
+input,
+textarea {
+    width: 50%;
+    height: 30px;
+    border-radius: 1.25rem;
+    border: none;
+    outline: none;
+}
+
+textarea {
+    height: 70px;
+}
+
+.action-buttons {
+    width: 100%;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+}
