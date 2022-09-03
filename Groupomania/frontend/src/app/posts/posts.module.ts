@@ -5,7 +5,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { PostsRoutingModule } from './posts-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    PostsRoutingModule
   ],
   exports: [
     PostComponent,

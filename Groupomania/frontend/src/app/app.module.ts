@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { PostsModule } from './posts/posts.module';
 import { LandingPageModule } from './landing-page/components/landing-page.module';
 
 @NgModule({
@@ -14,7 +13,6 @@ import { LandingPageModule } from './landing-page/components/landing-page.module
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    PostsModule,
     LandingPageModule
   ],
   bootstrap: [AppComponent]
