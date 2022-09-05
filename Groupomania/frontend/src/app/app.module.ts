@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
-import { LandingPageModule } from './landing-page/components/landing-page.module';
+import { FormModule } from './landing-page/components/form.module';
 import { AuthModule } from './auth/auth.module';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    LandingPageModule,
+    FormModule,
     AuthModule
   ],
   bootstrap: [AppComponent]

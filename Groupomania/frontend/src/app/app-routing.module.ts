@@ -1,10 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LandingPageComponent } from "./landing-page/components/landing-page/landing-page.component";
+import { FormComponent } from "./landing-page/components/form/form.component";
 
 const routes: Routes = [
     { path: 'posts', loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule) },
-    { path: '', component: LandingPageComponent }
+    { path: 'form', loadChildren: () => import('./landing-page/components/form.module').then(m => m.FormModule) },
+    { path: '', component: FormComponent }
 ];
 
 @NgModule({
@@ -15,4 +16,4 @@ const routes: Routes = [
         RouterModule
     ]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
