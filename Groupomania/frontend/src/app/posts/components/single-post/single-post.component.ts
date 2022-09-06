@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Post } from '../../../core/models/post.model';
 import { PostsService } from '../../../core/services/posts.service';
 
@@ -10,27 +10,34 @@ import { PostsService } from '../../../core/services/posts.service';
   styleUrls: ['./single-post.component.scss']
 })
 export class SinglePostComponent implements OnInit {
+  
   post$!: Observable<Post>;
-  buttonText!: string;
+  liked!: number;
+  disliked!: number;
+  userId!: string;
+  errorMessage!: string;
 
   constructor(private postsService: PostsService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.buttonText = 'Like';
     const postId = +this.route.snapshot.params['id'];
     this.post$ = this.postsService.getPostById(postId);
   }
 
-  onAddLike(postId: number) {
-    if (this.buttonText === 'Like') {
-      this.post$ = this.postsService.likePostById(postId, 'like').pipe(
-        tap(() => this.buttonText = 'Like !')
-      )
+  onLike(postId: number) {
+    if (this.liked === this.liked) {
+      this.post$ = this.postsService.likePost(postId, 'like').pipe();
     } else {
-      this.post$ = this.postsService.likePostById(postId, 'dislike').pipe(
-        tap(() => this.buttonText = 'Like')
-      );
+      this.post$ = this.postsService.likePost(postId, 'unlike').pipe();
+    }
+  }
+
+  onDislike(postId: number) {
+    if (this.disliked === this.disliked) {
+      this.post$ = this.postsService.dislikePost(postId, 'dislike').pipe();
+    } else {
+      this.post$ = this.postsService.dislikePost(postId, 'undislike').pipe();
     }
   }
 }

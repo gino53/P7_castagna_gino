@@ -7,7 +7,8 @@
       "imageUrl": "https://cdn.pixabay.com/photo/2022/08/19/01/06/ferris-wheel-7395944_960_720.jpg",
       "location": "Paris",
       "description": "Grande-roue",
-      "likes": 1
+      "likes": -1,
+      "dislikes": 0
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "imageUrl": "https://cdn.pixabay.com/photo/2022/08/15/12/47/moth-7387787_960_720.jpg",
       "location": "Bordeaux",
       "description": "Insecte",
-      "likes": 1
+      "likes": 0,
+      "dislikes": 0
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "imageUrl": "https://cdn.pixabay.com/photo/2022/07/17/12/12/pembroke-welsh-corgi-7327285_960_720.jpg",
       "location": "Lyon",
       "description": "Animal de compagnie",
-      "likes": 1
+      "likes": 0,
+      "dislikes": 0
     },
     {
       "id": 4,
@@ -34,7 +37,8 @@
       "imageUrl": "https://cdn.pixabay.com/photo/2022/08/19/01/06/ferris-wheel-7395944_960_720.jpg",
       "location": "Paris",
       "description": "Grande-roue",
-      "likes": 1
+      "likes": 0,
+      "dislikes": 0
     },
     {
       "id": 5,
@@ -43,7 +47,8 @@
       "imageUrl": "https://cdn.pixabay.com/photo/2022/08/15/12/47/moth-7387787_960_720.jpg",
       "location": "Bordeaux",
       "description": "Insecte",
-      "likes": 0
+      "likes": 0,
+      "dislikes": 0
     },
     {
       "id": 6,
@@ -52,7 +57,8 @@
       "imageUrl": "https://cdn.pixabay.com/photo/2022/07/17/12/12/pembroke-welsh-corgi-7327285_960_720.jpg",
       "location": "Lyon",
       "description": "Animal de compagnie",
-      "likes": 0
+      "likes": 0,
+      "dislikes": 0
     },
     {
       "title": "Renard",
@@ -61,7 +67,8 @@
       "description": "Animal",
       "id": 7,
       "createdDate": "2022-09-02T16:02:54.800Z",
-      "likes": 2
+      "likes": 0,
+      "dislikes": 0
     }
   ]
 }

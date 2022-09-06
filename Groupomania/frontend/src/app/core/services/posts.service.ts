@@ -18,11 +18,23 @@ export class PostsService {
         return this.http.get<Post>(`http://localhost:3000/posts/${postId}`)
     }
 
-    likePostById(postId: number, likeType: 'like' | 'dislike'): Observable<Post> {
+    likePost(postId: number, likeType: 'like' | 'unlike'): Observable<Post> {
         return this.getPostById(postId).pipe(
             map(post => ({
                 ...post,
                 likes: post.likes + (likeType === 'like' ? 1 : -1)
+            })),
+            switchMap(updatedPost => this.http.put<Post>(
+                `http://localhost:3000/posts/${postId}`, updatedPost)
+            )
+        );
+    }
+
+    dislikePost(postId: number, dislikeType: 'dislike' | 'undislike'): Observable<Post> {
+        return this.getPostById(postId).pipe(
+            map(post => ({
+                ...post,
+                dislikes: post.dislikes + (dislikeType === 'dislike' ? 1 : -1)
             })),
             switchMap(updatedPost => this.http.put<Post>(
                 `http://localhost:3000/posts/${postId}`, updatedPost)

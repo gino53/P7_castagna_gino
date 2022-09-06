@@ -6,4 +6,8 @@ export class Post {
     location?: string;
     description!: string;
     likes!: number;
+    dislikes!: number;
+    usersLiked!: string[];
+    usersDisliked!: string[];
+    userId!: string;
 }

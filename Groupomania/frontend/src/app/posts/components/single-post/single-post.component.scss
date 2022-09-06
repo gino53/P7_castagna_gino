@@ -10,9 +10,16 @@ i {
     box-sizing: border-box;
     width: 50%;
     margin: 1.25rem auto;
-    padding: 0.625rem 1.875rem;
-    border-radius: 5%;
-    background: #FFD7D7;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    background-color: rgba(255, 255, 255, .3);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    text-align: center;
 
     h2 {
         margin-bottom: 0.375rem;
@@ -34,20 +41,11 @@ i {
     p {
         font-weight: 300;
         font-size: 16px;
+        text-align: start;
     }
-}
 
-.liked {
-    background-color: rgba(rgb(9, 154, 9), 0.4);
-    color: rgb(1, 253, 1);
-    box-shadow: lightgreen 3px 3px 7px;
-
-    button {
-        box-shadow: lightgreen 3px 3px 7px;
-        color: rgb(1, 253, 1);
-
-        &:active {
-            box-shadow: lightgreen 0 0 5px;
-        }
+    span {
+        margin: 20px;
+        cursor: pointer;
     }
 }
