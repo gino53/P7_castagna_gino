@@ -2,12 +2,14 @@
 * {
   font-family: 'Lato', sans-serif;
   user-select: none;
+  outline: none;
 }
 
 body {
   padding: 0;
   margin: 0;
-  background: #4E5166;
+  background: linear-gradient(45deg, #FFD7D7, #4E5166);
+  height: 100vh;
 }
 
 a {

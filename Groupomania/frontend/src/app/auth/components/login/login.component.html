@@ -1,15 +1,14 @@
-<div class="form">
-    <div class="form-card">
+<div class="form-container">
+    <form>
         <h2>Connexion</h2>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email">
-            <label for="password">Mot de passe</label>
-            <input #x type="password">
-            <a (click)="x.type=x.type=='password'?'text':'password'"><i class="fa-solid fa-eye"></i></a>
-        </div>
-        <div class="action-buttons">
-            <button type="submit" (click)="onLogin()">Connexion</button>
-        </div>
-    </div>
+        <input type="email" placeholder="Email"><br>
+        <input type="password" placeholder="Mot de passe"><br>
+        <input type="button" (click)="onLogin()" value="Connexion">
+    </form>
+    
+    <div class="drop drop-1"></div>
+    <div class="drop drop-2"></div>
+    <div class="drop drop-3"></div>
+    <div class="drop drop-4"></div>
+    <div class="drop drop-5"></div>
 </div>
