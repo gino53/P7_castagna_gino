@@ -5,15 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './@core/core.module';
 import { FormModule } from './landing-page/components/form.module';
 import { AuthModule } from './auth/auth.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
+    SharedModule,
     FormModule,
     AuthModule
   ],
