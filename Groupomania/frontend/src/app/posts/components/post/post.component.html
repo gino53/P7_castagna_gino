@@ -1,7 +1,4 @@
-<div class="post-card">
+<div class="post-card" (click)="onViewPost()" >
     <h2>{{ post.title | titlecase }}</h2>
     <img [src]="post.imageUrl" [alt]="post.title">
-    <div class="button">
-        <input type="button" (click)="onViewPost()" value="VIEW">
-    </div>
 </div>
