@@ -1,31 +1,24 @@
-<div class="form-card">
-    <h2>NOUVEAU POST</h2>
+<div class="form-container">
     <form [formGroup]="postForm">
-        <div class="form-group">
-            <label for="title">Titre</label>
-            <input type="text" id="title" formControlName="title">
-        </div>
-        <div class="form-group">
-            <label for="imageUrl">URL de l'image</label>
-            <input id="imageUrl" type="text" formControlName="imageUrl">
-        </div>
-        <div class="form-group">
-            <label for="location">Lieu</label>
-            <input type="text" id="location" formControlName="location">
-        </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea type="text" id="description" formControlName="description" rows="4"></textarea>
-        </div>
-        <div class="action-buttons">
-            <button type="submit" (click)="onSubmitForm()" [disabled]="postForm.invalid">Enregistrer</button>
-        </div>
+        <h2>NOUVEAU POST</h2>
+        <input type="text" id="title" formControlName="title" placeholder="Titre"><br>
+        <input id="imageUrl" type="text" formControlName="imageUrl" placeholder="URL de l'image"><br>
+        <input type="text" id="location" formControlName="location" placeholder="Lieu"><br>
+        <textarea type="text" id="description" formControlName="description" rows="4" placeholder="Description"></textarea><br>
+        <input type="button" (click)="onSubmitForm()" [disabled]="postForm.invalid" value="Enregistrer"><br>
     </form>
+    
+    <div class="drop drop-1"></div>
+    <div class="drop drop-2"></div>
+    <div class="drop drop-3"></div>
+    <div class="drop drop-4"></div>
+    <div class="drop drop-5"></div>
 </div>
+
 <div class="post-card" *ngIf="postPreview$ | async as post">
-    <p>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</p>
+    <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
     <h2>{{ post.title | titlecase }}</h2>
     <img [src]="post.imageUrl" [alt]="post.title">
-    <p id="location" *ngIf="post.location">Photo prise à {{ post.location }}</p>
+    <span id="location" *ngIf="post.location">Photo prise à {{ post.location }}</span>
     <p>{{ post.description }}</p>
 </div>

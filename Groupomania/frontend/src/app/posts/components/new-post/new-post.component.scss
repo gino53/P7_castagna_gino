@@ -1,45 +1,157 @@
-.form-card,
-.post-card {
-    box-sizing: border-box;
-    width: 50%;
-    margin: 1.25rem auto;
-    padding: 0.625rem 1.875rem;
-    border-radius: 1.25rem;
-    background: #FFD7D7;
+.form-container {
+    position: relative;
+    width: 60%;
+    margin: 10% auto 5%;
 }
 
-.form-group {
-    margin: 10px auto;
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+form {
+    height: 520px;
+    padding: 3rem;
+    border-radius: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    background-color: rgba(255, 255, 255, .3);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 60px;
+    font-weight: bold;
+    color: white;
+    opacity: .7;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
 }
 
 input,
 textarea {
-    width: 50%;
-    height: 30px;
-    border-radius: 1.25rem;
+    width: 80%;
+    margin-bottom: 2rem;
+    padding: 1rem;
     border: none;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 50px;
+    background: transparent;
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    transition: all .3s;
 }
 
 textarea {
-    height: 70px;
+    resize : both;
+    min-width: 80%;
+    min-height : 30px;
+    max-width : 80%;
+    max-height : 80px;
 }
 
-.action-buttons {
-    width: 100%;
+input[type="button"] {
+    width: 150px;
+    margin-top: 10px;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-button {
-    display: block;
-    margin: 20px auto;
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+    background: rgba(255, 255, 255, .1);
+    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);
+}
+
+::placeholder {
+    color: white;
+}
+
+.drop {
+    position: absolute;
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, .3);
+    box-shadow: 10px 10px 60px -8px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+}
+
+.drop-1 {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    left: -40px;
+    z-index: -1;
+}
+
+.drop-2 {
+    width: 80px;
+    height: 80px;
+    bottom: -30px;
+    right: -10px;
+}
+
+.drop-3 {
+    width: 100px;
+    height: 100px;
+    bottom: 120px;
+    right: -50px;
+    z-index: -1;
+}
+
+.drop-4 {
+    width: 120px;
+    height: 120px;
+    top: -60px;
+    right: -60px;
+}
+
+.drop-5 {
+    width: 60px;
+    height: 60px;
+    bottom: 170px;
+    left: 90px;
+    z-index: -1;
 }
 
 .post-card {
-    h2 {
+    box-sizing: border-box;
+    width: 60%;
+    margin: 1.25rem auto;
+    padding: 0 2rem 1rem;
+    border-radius: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    background-color: rgba(255, 255, 255, .3);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+
+    h4,
+    h2,
+    #location,
+    p {
+        font-weight: bold;
+        color: white;
+        opacity: .7;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    }
+
+    h2,
+    #location {
         margin-bottom: 0.375rem;
+        text-align: center;
     }
 
     img {
@@ -50,13 +162,18 @@ button {
     #location {
         display: flex;
         justify-content: center;
-        margin-top: 0;
-        font-weight: 300;
         font-size: 16px;
     }
 
     p {
-        font-weight: 300;
         font-size: 16px;
     }
+
+    span {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+
 }
