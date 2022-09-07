@@ -26,18 +26,18 @@ export class SinglePostComponent implements OnInit {
   }
 
   onLike(postId: number) {
-    if (this.liked === this.liked) {
-      this.post$ = this.postsService.likePost(postId, 'like').pipe();
+    if (this.liked) {
+      this.post$ = this.postsService.likePost(postId, 'like');
     } else {
-      this.post$ = this.postsService.likePost(postId, 'unlike').pipe();
+      this.post$ = this.postsService.likePost(postId, 'unlike');
     }
   }
 
   onDislike(postId: number) {
-    if (this.disliked === this.disliked) {
-      this.post$ = this.postsService.dislikePost(postId, 'dislike').pipe();
+    if (this.disliked) {
+      this.post$ = this.postsService.dislikePost(postId, 'dislike');
     } else {
-      this.post$ = this.postsService.dislikePost(postId, 'undislike').pipe();
+      this.post$ = this.postsService.dislikePost(postId, 'undislike');
     }
   }
 }
