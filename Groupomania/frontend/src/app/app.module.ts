@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './@core/core.module';
-import { FormModule } from './landing-page/components/form.module';
+import { FormModule } from './landing-page/landing-page.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 

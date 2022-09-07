@@ -4,8 +4,8 @@ import { AuthService } from 'src/app/@core/services/auth.service';
 
 @Component({
   selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.scss']
 })
 export class FormComponent implements OnInit {
 
