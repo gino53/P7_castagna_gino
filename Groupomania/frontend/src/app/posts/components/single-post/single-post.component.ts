@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Post } from '../../../core/models/post.model';
-import { PostsService } from '../../../core/services/posts.service';
+import { Post } from '../../../@core/models/post.model';
+import { PostsService } from '../../../@core/services/posts.service';
 
 @Component({
   selector: 'app-single-post',
