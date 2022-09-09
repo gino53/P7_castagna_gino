@@ -1,14 +1,15 @@
 {
-    "name": "angular-intermediate-backend",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "start": "npx json-server --watch db.json"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "json-server": "^0.17.0"
-    }
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
   }
+}
