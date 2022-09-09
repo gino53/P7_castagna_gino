@@ -1,17 +1,17 @@
-const Sequelize = require("sequelize");
+const express = require('express');
+const bodyParser = require('body-parser');
+const apiRouter = require('./apiRouter').router;
+const server = express();
 
-const sequelize = new Sequelize(
-   'groupomania',
-   'DATABASE_USERNAME',
-   'DATABASE_PASSWORD',
-    {
-      host: 'DATABASE_HOST',
-      dialect: 'mysql'
-    }
-  );
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
 
-sequelize.authenticate().then(() => {
-   console.log('Connection has been established successfully.');
-}).catch((error) => {
-   console.error('Unable to connect to the database: ', error);
+server.get('/', function(req, res) {
+   res.setHeader('Content-Type', 'text/html');
+});
+
+server.use('/api/', apiRouter);
+
+server.listen(8080, function() {
+   console.log('Server en écoute');
 });
