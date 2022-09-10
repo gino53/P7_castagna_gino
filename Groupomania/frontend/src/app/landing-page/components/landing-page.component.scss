@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto;
+    margin: auto;
 
     .home {
         display: flex;
@@ -114,10 +114,8 @@ $planets: (
 );
 
 body {
-    background-color: blue;
-    background-size: 33%;
-    background-repeat: repeat;
-    min-height: 2700px * $scale;
+    height: 70vh;
+    overflow: hidden;
 }
 
 
