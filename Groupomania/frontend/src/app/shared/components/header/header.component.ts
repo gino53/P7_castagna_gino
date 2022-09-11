@@ -17,4 +17,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('posts/create');
   }
 
+  onProfil(): void {
+    this.router.navigateByUrl('/profil');
+  }
+
 }
