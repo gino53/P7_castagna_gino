@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     this.auth.login(),
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/posts');
   }
 
 }
