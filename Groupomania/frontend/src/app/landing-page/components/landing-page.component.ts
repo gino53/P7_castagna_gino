@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/@core/services/auth.service';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class FormComponent implements OnInit {
+export class LandingComponent implements OnInit {
 
   constructor(private auth: AuthService,
     private router: Router) { }

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormComponent } from './components/landing-page.component';
+import { LandingComponent } from './components/landing-page.component';
 
 const routes: Routes = [
-  { path: '', component: FormComponent }
+  { path: '', component: LandingComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FormRoutingModule { }
+export class LandingRoutingModule { }

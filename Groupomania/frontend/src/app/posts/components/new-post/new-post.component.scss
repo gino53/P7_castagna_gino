@@ -46,12 +46,32 @@ textarea {
     transition: all .3s;
 }
 
+.img-container {
+    display: flex;
+    justify-content: center;
+
+    input {
+        width: 35%;
+        margin: 0 0.9rem 2rem;
+    }
+
+    #imgFormat {
+        pointer-events: none;
+    }
+
+    input::-webkit-file-upload-button {
+        border: none;
+        border-radius: 50px;
+        background: #4E5166;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        pointer-events: all;
+    }
+}
+
 textarea {
-    resize: both;
-    min-width: 80%;
-    min-height: 30px;
-    max-width: 80%;
-    max-height: 80px;
+    resize: none;
 }
 
 input[type="button"] {

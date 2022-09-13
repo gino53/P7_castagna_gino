@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormRoutingModule } from './landing-page-routing.module';
-import { FormComponent } from './components/landing-page.component';
+import { LandingRoutingModule } from './landing-page-routing.module';
+import { LandingComponent } from './components/landing-page.component';
 import { RouterModule } from '@angular/router';
 
 
 @NgModule({
   declarations: [
-    FormComponent
+    LandingComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormRoutingModule
+    LandingRoutingModule
   ],
   exports: [
-    FormComponent
+    LandingComponent
   ]
 })
-export class FormModule { }
+export class LandingModule { }
