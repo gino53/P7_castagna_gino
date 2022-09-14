@@ -7,10 +7,10 @@ import { AuthService } from "../services/auth.service";
 })
 export class AuthGuard implements CanActivate {
 
-    constructor(private auth: AuthService,
+    public constructor(private auth: AuthService,
         private router: Router) { }
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         if (this.auth.getToken()) {
             return true;
         } else {
@@ -18,4 +18,5 @@ export class AuthGuard implements CanActivate {
             return false;
         }
     }
+
 }

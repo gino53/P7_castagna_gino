@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from '../../../@core/models/post.model';
 
@@ -7,15 +7,14 @@ import { Post } from '../../../@core/models/post.model';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss']
 })
-export class PostComponent implements OnInit {
-  @Input() post!: Post;
+export class PostComponent {
 
+  @Input() public post!: Post;
 
-  constructor(private router: Router) { }
+  public constructor(private router: Router) { }
 
-  ngOnInit(): void { }
-
-  onViewPost() {
+  public onViewPost() {
     this.router.navigateByUrl(`posts/${this.post.id}`);
   }
+  
 }

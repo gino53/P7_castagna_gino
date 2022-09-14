@@ -8,17 +8,17 @@ import { map, Observable, switchMap } from 'rxjs';
 })
 export class PostsService {
 
-    constructor(private http: HttpClient) { }
+    public constructor(private http: HttpClient) { }
 
-    getAllPosts(): Observable<Post[]> {
+    public getAllPosts(): Observable<Post[]> {
         return this.http.get<Post[]>('http://localhost:3000/posts');
     }
 
-    getPostById(postId: number): Observable<Post> {
+    public getPostById(postId: number): Observable<Post> {
         return this.http.get<Post>(`http://localhost:3000/posts/${postId}`)
     }
 
-    likePost(postId: number, likeType: 'like' | 'unlike'): Observable<Post> {
+    public likePost(postId: number, likeType: 'like' | 'unlike'): Observable<Post> {
         return this.getPostById(postId).pipe(
             map(post => ({
                 ...post,
@@ -30,7 +30,7 @@ export class PostsService {
         );
     }
 
-    dislikePost(postId: number, dislikeType: 'dislike' | 'undislike'): Observable<Post> {
+    public dislikePost(postId: number, dislikeType: 'dislike' | 'undislike'): Observable<Post> {
         return this.getPostById(postId).pipe(
             map(post => ({
                 ...post,
@@ -42,7 +42,7 @@ export class PostsService {
         );
     }
 
-    addPost(formValue: { title: string, imageUrl: string, location?: string, description: string }): Observable<Post> {
+    public addPost(formValue: { title: string, imageUrl: string, location?: string, description: string }): Observable<Post> {
         return this.getAllPosts().pipe(
             map(posts => [...posts].sort((a: Post, b: Post) => a.id - b.id)),
             map(sortedPosts => sortedPosts[sortedPosts.length - 1]),

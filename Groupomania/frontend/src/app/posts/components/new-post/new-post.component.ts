@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Post } from '../../../@core/models/post.model';
 import { PostsService } from '../../../@core/services/posts.service';
 
@@ -10,18 +10,16 @@ import { PostsService } from '../../../@core/services/posts.service';
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.scss']
 })
-export class NewPostComponent implements OnInit {
+export class NewPostComponent {
 
-  postForm!: FormGroup;
-  postPreview$!: Observable<Post>;
-  urlRegex!: RegExp;
-  image!: string;
+  public postForm!: FormGroup;
+  public postPreview$!: Observable<Post>;
+  public urlRegex!: RegExp;
+  public image!: string;
 
-  constructor(private formBuilder: FormBuilder,
+  public constructor(private formBuilder: FormBuilder,
     private postService: PostsService,
-    private router: Router) { }
-
-  ngOnInit(): void {
+    private router: Router) {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
     this.postForm = this.formBuilder.group({
       title: [null, Validators.required],
@@ -41,15 +39,14 @@ export class NewPostComponent implements OnInit {
         likes: 0
       }))
     );
-  };
-
-  onSubmitForm(): void {
-    this.postService.addPost(this.postForm.value).pipe(
-      tap(() => this.router.navigateByUrl('/posts'))
-    ).subscribe();
   }
 
-  onImageAdded(event: Event) {
+  public onSubmitForm(): void {
+    this.postService.addPost(this.postForm.value).pipe().subscribe(
+      () => this.router.navigateByUrl('/posts'));
+  }
+
+  public onImageAdded(event: Event) {
     const image = (event.target as HTMLInputElement).files![0];
     this.postForm.get('image')!.setValue(this.image);
     this.postForm.updateValueAndValidity();
@@ -59,4 +56,5 @@ export class NewPostComponent implements OnInit {
     };
     reader.readAsDataURL(image);
   }
+
 }

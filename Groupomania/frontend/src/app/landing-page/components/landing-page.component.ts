@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/services/auth.service';
 
@@ -7,17 +7,14 @@ import { AuthService } from 'src/app/@core/services/auth.service';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent {
 
   constructor(private auth: AuthService,
     private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
-  onLogin(): void {
+  public onLogin(): void {
     this.auth.login(),
       this.router.navigateByUrl('/posts');
   }
-
+  
 }

@@ -1,14 +1,16 @@
 export class Post {
-    id!: number;
-    createdDate!: Date;
-    title!: string;
-    image?: string;
-    imageUrl?: string;
-    location?: string;
-    description!: string;
-    likes!: number;
-    dislikes!: number;
-    usersLiked!: string[];
-    usersDisliked!: string[];
-    userId!: string;
+
+    public id!: number;
+    public createdDate!: Date;
+    public title!: string;
+    public image?: string;
+    public imageUrl?: string;
+    public location?: string;
+    public description!: string;
+    public likes!: number;
+    public dislikes!: number;
+    public usersLiked!: string[];
+    public usersDisliked!: string[];
+    public userId!: string;
+
 }

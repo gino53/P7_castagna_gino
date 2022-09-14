@@ -4,7 +4,6 @@ import { LandingRoutingModule } from './landing-page-routing.module';
 import { LandingComponent } from './components/landing-page.component';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   declarations: [
     LandingComponent
