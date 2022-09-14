@@ -15,6 +15,7 @@ export class NewPostComponent implements OnInit {
   postForm!: FormGroup;
   postPreview$!: Observable<Post>;
   urlRegex!: RegExp;
+  image!: string;
 
   constructor(private formBuilder: FormBuilder,
     private postService: PostsService,
@@ -24,7 +25,7 @@ export class NewPostComponent implements OnInit {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
     this.postForm = this.formBuilder.group({
       title: [null, Validators.required],
-      imgFormat: [null, [Validators.required]],
+      image: [null, [Validators.required]],
       imageUrl: [null, [Validators.required, Validators.pattern(this.urlRegex)]],
       location: [null],
       description: [null, Validators.required]
@@ -46,5 +47,16 @@ export class NewPostComponent implements OnInit {
     this.postService.addPost(this.postForm.value).pipe(
       tap(() => this.router.navigateByUrl('/posts'))
     ).subscribe();
+  }
+
+  onImageAdded(event: Event) {
+    const image = (event.target as HTMLInputElement).files![0];
+    this.postForm.get('image')!.setValue(this.image);
+    this.postForm.updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.image = reader.result as string;
+    };
+    reader.readAsDataURL(image);
   }
 }

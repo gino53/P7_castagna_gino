@@ -3,7 +3,7 @@
         <h2>NOUVEAU POST</h2>
         <input type="text" id="title" formControlName="title" placeholder="Titre"><br>
         <div class="img-container">
-            <input id="imgFormat" type="file" accept=".png, .jpg, .jpeg, .gif" formControlName="imgFormat">
+            <input id="image" type="file" accept="image/*" #imageInput (change)="onImageAdded($event)">
             <input id="imageUrl" type="text" formControlName="imageUrl" placeholder="URL de l'image"><br>
         </div>
         <input type="text" id="location" formControlName="location" placeholder="Lieu"><br>
@@ -21,8 +21,8 @@
 <div class="post-card" *ngIf="postPreview$ | async as post">
     <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
     <h2>{{ post.title | titlecase }}</h2>
-    <img [src]="post.imgFormat" [alt]="post.title">
-    <img [src]="post.imageUrl" [alt]="post.title">
+    <img [src]="image" *ngIf="image" [alt]="post.title">
+    <img [src]="post.imageUrl" *ngIf="post.imageUrl" [alt]="post.title">
     <span id="location" *ngIf="post.location">Photo prise à {{ post.location }}</span>
     <p>{{ post.description }}</p>
 </div>
