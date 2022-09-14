@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './@core/core.module';
 import { LandingModule } from './landing-page/landing-page.module';
 import { AuthModule } from './auth/auth.module';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './@shared/shared.module';
 
 @NgModule({
   declarations: [
