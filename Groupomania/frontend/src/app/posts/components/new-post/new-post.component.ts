@@ -23,7 +23,6 @@ export class NewPostComponent {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
     this.postForm = this.formBuilder.group({
       title: [null, Validators.required],
-      image: [null, [Validators.required]],
       imageUrl: [null, [Validators.required, Validators.pattern(this.urlRegex)]],
       location: [null],
       description: [null, Validators.required]
@@ -42,7 +41,7 @@ export class NewPostComponent {
   }
 
   public onSubmitForm(): void {
-    this.postService.addPost(this.postForm.value).pipe().subscribe(
+    this.postService.createPost(this.postForm.value).pipe().subscribe(
       () => this.router.navigateByUrl('/posts'));
   }
 

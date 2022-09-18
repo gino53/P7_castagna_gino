@@ -13,7 +13,7 @@ export class PostListComponent {
   public posts$!: Observable<Post[]>;
 
   public constructor(private postsService: PostsService) {
-    this.posts$ = this.postsService.getAllPosts();
+    this.posts$ = this.postsService.getAllPost();
   }
   
 }

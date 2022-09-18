@@ -3,7 +3,7 @@
         <h2>NOUVEAU POST</h2>
         <input type="text" id="title" formControlName="title" placeholder="Titre"><br>
         <div class="img-container">
-            <input id="image" type="file" accept="image/*" #imageInput (change)="onImageAdded($event)">
+            <input id="image" type="file" accept="image/*"  (change)="onImageAdded($event)">
             <input id="imageUrl" type="text" formControlName="imageUrl" placeholder="URL de l'image"><br>
         </div>
         <input type="text" id="location" formControlName="location" placeholder="Lieu"><br>
