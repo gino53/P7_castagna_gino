@@ -1,14 +1,13 @@
 <div class="form-container">
     <form [formGroup]="postForm">
         <h2>NOUVEAU POST</h2>
-        <input type="text" id="title" formControlName="title" placeholder="Titre"><br>
-        <div class="img-container">
-            <input id="image" type="file" accept="image/*"  (change)="onImageAdded($event)">
-            <input id="imageUrl" type="text" formControlName="imageUrl" placeholder="URL de l'image"><br>
-        </div>
-        <input type="text" id="location" formControlName="location" placeholder="Lieu"><br>
-        <textarea type="text" id="description" formControlName="description" rows="2" placeholder="Description"></textarea><br>
-        <input type="button" (click)="onSubmitForm()" [disabled]="postForm.invalid" value="Enregistrer"><br>
+        <input type="text" id="title" formControlName="title" placeholder="Titre">
+        <input id="image" type="file" accept="image/*"  (change)="onImageAdded($event)">
+        <h4>OU</h4>
+        <input id="imageUrl" type="text" formControlName="imageUrl" placeholder="URL de l'image">
+        <input type="text" id="location" formControlName="location" placeholder="Lieu">
+        <textarea type="text" id="description" formControlName="description" rows="2" placeholder="Description"></textarea>
+        <input type="button" (click)="onSubmitForm()" [disabled]="postForm.invalid" value="Enregistrer">
     </form>
 
     <div class="drop drop-1"></div>

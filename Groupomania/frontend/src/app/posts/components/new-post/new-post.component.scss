@@ -1,12 +1,18 @@
 .form-container {
     position: relative;
-    width: 60%;
-    margin: 10% auto 5%;
+    width: 370px;
+    margin: 5rem auto 1.875rem;
+    display: flex;
+    justify-content: center;
 }
 
 form {
-    height: 520px;
-    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 600px;
+    padding: 2rem;
     border-radius: 1.25rem;
     border-top: 1px solid rgba(255, 255, 255, .3);
     border-left: 1px solid rgba(255, 255, 255, .3);
@@ -19,7 +25,7 @@ form {
 }
 
 h2 {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     font-weight: bold;
     color: white;
     opacity: .7;
@@ -28,8 +34,8 @@ h2 {
 
 input,
 textarea {
-    width: 80%;
-    margin-bottom: 2rem;
+    width: 250px;
+    margin-bottom: 0.875rem;
     padding: 1rem;
     border: none;
     border-left: 1px solid rgba(255, 255, 255, .3);
@@ -46,28 +52,27 @@ textarea {
     transition: all .3s;
 }
 
-.img-container {
-    display: flex;
-    justify-content: center;
+#image {
+    pointer-events: none;
+}
 
-    input {
-        width: 35%;
-        margin: 0 0.9rem 2rem;
-    }
+input::-webkit-file-upload-button {
+    border: none;
+    border-radius: 50px;
+    background: #4E5166;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    pointer-events: all;
+}
 
-    #imgFormat {
-        pointer-events: none;
-    }
-
-    input::-webkit-file-upload-button {
-        border: none;
-        border-radius: 50px;
-        background: #4E5166;
-        color: white;
-        font-weight: bold;
-        cursor: pointer;
-        pointer-events: all;
-    }
+h4 {
+    margin: 0;
+    margin-bottom: 0.875rem;
+    font-weight: bold;
+    color: white;
+    opacity: .7;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
 }
 
 textarea {
