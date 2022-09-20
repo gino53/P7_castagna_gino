@@ -11,6 +11,10 @@ export class AuthService {
         this.token = 'Token'
     }
 
+    public signup() {
+        this.token = 'Token'
+    }
+
     public getToken(): string {
         return this.token;
     }

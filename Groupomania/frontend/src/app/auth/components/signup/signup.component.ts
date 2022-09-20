@@ -3,22 +3,22 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/@core/services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class LoginComponent {
+export class SignUpComponent {
 
   constructor(private auth: AuthService,
     private router: Router) { }
 
-  onLogin(): void {
-    this.auth.login(),
+  onSignUp(): void {
+    this.auth.signup(),
       this.router.navigateByUrl('/posts');
   }
 
-  onSignUp(): void {
-    this.router.navigateByUrl('auth/signup');
+  onLogin(): void {
+    this.router.navigateByUrl('auth/login');
   }
 
 }
