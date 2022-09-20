@@ -38,3 +38,11 @@ button {
     box-shadow: lightgray 0 0 5px;
   }
 }
+
+::selection {
+  background-color: #4E5166;
+}
+
+::-moz-selection {
+  background-color: #4E5166;
+}

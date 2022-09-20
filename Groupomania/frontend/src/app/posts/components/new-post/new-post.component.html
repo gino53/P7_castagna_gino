@@ -1,12 +1,12 @@
 <div class="form-container">
     <form [formGroup]="postForm">
         <h2>NOUVEAU POST</h2>
-        <input type="text" id="title" formControlName="title" placeholder="Titre">
+        <input type="text" id="title" formControlName="title" maxlength="30" placeholder="Titre">
+        <input type="text" id="location" formControlName="location" maxlength="20" placeholder="Lieu">
+        <textarea type="text" id="description" formControlName="description" rows="2" maxlength="150" placeholder="Description"></textarea>
         <input id="image" type="file" accept="image/*"  (change)="onImageAdded($event)">
         <h4>OU</h4>
         <input id="imageUrl" type="text" formControlName="imageUrl" placeholder="URL de l'image">
-        <input type="text" id="location" formControlName="location" placeholder="Lieu">
-        <textarea type="text" id="description" formControlName="description" rows="2" placeholder="Description"></textarea>
         <input type="button" (click)="onSubmitForm()" [disabled]="postForm.invalid" value="Enregistrer">
     </form>
 
@@ -19,9 +19,11 @@
 
 <div class="post-card" *ngIf="postPreview$ | async as post">
     <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
-    <h2>{{ post.title | titlecase }}</h2>
+    <h3>{{ post.title }}</h3>
     <img [src]="image" *ngIf="image" [alt]="post.title">
     <img [src]="post.imageUrl" *ngIf="post.imageUrl" [alt]="post.title">
     <span id="location" *ngIf="post.location">Photo prise à {{ post.location }}</span>
-    <p>{{ post.description }}</p>
+    <div class="desc">
+        <p>{{ post.description }}</p>
+    </div>
 </div>
