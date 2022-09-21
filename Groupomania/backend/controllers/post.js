@@ -17,13 +17,13 @@ exports.createPost = (req, res, next) => {
     delete postObject._id;
     const post = new Post({
         title: postObject.title,
+        imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
         description: postObject.description,
         location: postObject.location,
         likes: "0",
         dislikes: "0",
         usersLiked: [],
-        usersDislikes: [],
-        imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
+        usersDislikes: []
     });
     post.save()
         .then(res.status(201).json({ message: "Post créé avec succès !" }))

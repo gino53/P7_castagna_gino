@@ -1,7 +1,6 @@
 header {
     margin-bottom: 20px;
     padding: 10px;
-    border-bottom: 3px solid #FFD7D7;
 }
 
 img {
@@ -28,5 +27,42 @@ i {
         transform: scale(110%);
         color: rgba(255, 255, 255, .8);
         box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);
+    }
+}
+
+.border {
+    position: relative;
+    bottom: 20px;
+    width: auto;
+    height: 3px;
+    background: #FFF;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #FFD7D7, #4E5166, #FFD7D7, #4E5166, #FFD7D7);
+    animation: animate 20s linear infinite;
+    background-size: 500%;
+}
+
+.border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #FFD7D7, #4E5166, #FFD7D7, #4E5166, #FFD7D7);
+    animation: animate 20s linear infinite;
+    background-size: 500%;
+    filter: blur(20px);
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+    }
+    0% {
+        background-position: 500% 0;
     }
 }

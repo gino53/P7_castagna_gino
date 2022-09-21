@@ -19,26 +19,16 @@ export class PostsService {
     }
 
     public createPost(formValue: { title: string, imageUrl: string, location?: string, description: string }): Observable<Post> {
-        return this.getAllPost().pipe(
-            map(posts => [...posts].sort((a: Post, b: Post) => a.id - b.id)),
-            map(sortedPosts => sortedPosts[sortedPosts.length - 1]),
-            map(previousPost => ({
-                ...formValue,
-                id: previousPost.id + 1,
-                createdDate: new Date(),
-                likes: 0
-            })),
-            switchMap(newPost => this.http.post<Post>('http://localhost:3000/api/posts', newPost))
-        );
+        return this.http.post<Post>('http://localhost:3000/api/posts', formValue);
     }
 
     public likePost(postId: number, likeType: 'like' | 'unlike'): Observable<Post> {
         return this.getPostById(postId).pipe(
-            map(post => ({
+            map((post: Post) => ({
                 ...post,
                 likes: post.likes + (likeType === 'like' ? 1 : -1)
             })),
-            switchMap(updatedPost => this.http.put<Post>(
+            switchMap((updatedPost: Post) => this.http.put<Post>(
                 `http://localhost:3000/api/posts/${postId}`, updatedPost)
             )
         );
@@ -46,11 +36,11 @@ export class PostsService {
 
     public dislikePost(postId: number, dislikeType: 'dislike' | 'undislike'): Observable<Post> {
         return this.getPostById(postId).pipe(
-            map(post => ({
+            map((post: Post) => ({
                 ...post,
                 dislikes: post.dislikes + (dislikeType === 'dislike' ? 1 : -1)
             })),
-            switchMap(updatedPost => this.http.put<Post>(
+            switchMap((updatedPost: Post) => this.http.put<Post>(
                 `http://localhost:3000/api/posts/${postId}`, updatedPost)
             )
         );
