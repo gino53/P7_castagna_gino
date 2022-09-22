@@ -40,7 +40,8 @@ export class NewPostComponent {
   }
 
   public onSubmitForm(): void {
-    this.postService.createPost(this.postForm.value).pipe().subscribe(
+    const newPost = new Post();
+    this.postService.createPost(newPost, this.postForm.get('image')!.value).pipe().subscribe(
       () => this.router.navigateByUrl('/posts'));
   }
 

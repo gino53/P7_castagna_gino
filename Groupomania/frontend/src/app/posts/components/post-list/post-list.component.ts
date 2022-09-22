@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Post } from '../../../@core/models/post.model';
 import { PostsService } from '../../../@core/services/posts.service';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -11,9 +12,24 @@ import { Observable } from 'rxjs';
 export class PostListComponent {
 
   public posts$!: Observable<Post[]>;
+  public errorMsg!: string;
 
-  public constructor(private postsService: PostsService) {
-    this.posts$ = this.postsService.getAllPost();
+  public constructor(private post: PostsService,
+    private router: Router) {
+    this.posts$ = this.post.posts$.pipe(
+      tap(() => {
+        this.errorMsg = '';
+      }),
+      catchError(error => {
+        this.errorMsg = JSON.stringify(error);
+        return of([]);
+      })
+    );
+    this.post.getAllPost();
   }
-  
+
+  public onViewPost() {
+    this.router.navigateByUrl(`posts/${this.post}`);
+  }
+
 }
