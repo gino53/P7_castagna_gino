@@ -12,7 +12,7 @@ export class PostsService {
 
     public constructor(private http: HttpClient) { }
 
-    getAllPost() {
+    getAllPosts() {
         this.http.get<Post[]>('http://localhost:3000/api/posts').pipe(
             tap(posts => this.posts$.next(posts)),
             catchError(error => {
@@ -22,7 +22,7 @@ export class PostsService {
         ).subscribe();
     }
 
-    public getPostById(postId: number): Observable<Post> {
+    public getPostById(postId: string): Observable<Post> {
         return this.http.get<Post>(`http://localhost:3000/api/posts/${postId}`)
     }
 
@@ -33,7 +33,7 @@ export class PostsService {
         return this.http.post<{ message: string }>('http://localhost:3000/api/posts', formData).pipe();
     }
 
-    public likePost(postId: number, likeType: 'like' | 'unlike'): Observable<Post> {
+    public likePost(postId: string, likeType: 'like' | 'unlike'): Observable<Post> {
         return this.getPostById(postId).pipe(
             map((post: Post) => ({
                 ...post,
@@ -45,7 +45,7 @@ export class PostsService {
         );
     }
 
-    public dislikePost(postId: number, dislikeType: 'dislike' | 'undislike'): Observable<Post> {
+    public dislikePost(postId: string, dislikeType: 'dislike' | 'undislike'): Observable<Post> {
         return this.getPostById(postId).pipe(
             map((post: Post) => ({
                 ...post,

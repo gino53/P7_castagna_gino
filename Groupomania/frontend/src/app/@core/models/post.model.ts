@@ -1,6 +1,6 @@
 export class Post {
 
-    public id!: number;
+    public _id!: string;
     public createdDate!: Date;
     public title!: string;
     public imageUrl!: string;

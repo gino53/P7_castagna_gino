@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { map, Observable, switchMap, tap } from 'rxjs';
 import { Post } from '../../../@core/models/post.model';
 import { PostsService } from '../../../@core/services/posts.service';
 
@@ -12,31 +12,16 @@ import { PostsService } from '../../../@core/services/posts.service';
 export class SinglePostComponent {
 
   public post$!: Observable<Post>;
-  public liked!: number;
-  public disliked!: number;
-  public userId!: string;
+  public liked!: boolean;
+  public disliked!: boolean;
   public errorMessage!: string;
 
   public constructor(private postsService: PostsService,
     private route: ActivatedRoute) {
-    const postId = +this.route.snapshot.params['id'];
-    this.post$ = this.postsService.getPostById(postId);
+      this.post$ = this.route.params.pipe(
+        map(params => params['id']),
+        switchMap(id => this.postsService.getPostById(id)),
+      );
   }
 
-  public onLike(postId: number) {
-    if (this.liked) {
-      this.post$ = this.postsService.likePost(postId, 'like');
-    } else {
-      this.post$ = this.postsService.likePost(postId, 'unlike');
-    }
-  }
-
-  public onDislike(postId: number) {
-    if (this.disliked) {
-      this.post$ = this.postsService.dislikePost(postId, 'dislike');
-    } else {
-      this.post$ = this.postsService.dislikePost(postId, 'undislike');
-    }
-  }
-  
 }

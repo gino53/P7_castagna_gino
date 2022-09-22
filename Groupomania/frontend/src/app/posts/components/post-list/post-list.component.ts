@@ -25,11 +25,11 @@ export class PostListComponent {
         return of([]);
       })
     );
-    this.post.getAllPost();
+    this.post.getAllPosts();
   }
 
-  public onViewPost() {
-    this.router.navigateByUrl(`posts/${this.post}`);
+  onViewPost(id: string) {
+    this.router.navigate(['post', id]);
   }
 
 }

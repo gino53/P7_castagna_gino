@@ -7,8 +7,8 @@ import { SinglePostComponent } from "./components/single-post/single-post.compon
 
 const routes: Routes = [
     { path: 'create', component: NewPostComponent, canActivate: [AuthGuard] },
-    { path: ':id', component: SinglePostComponent, canActivate: [AuthGuard] },
-    { path: '', component: PostListComponent, canActivate: [AuthGuard] }
+    { path: 'post/:id', component: SinglePostComponent, canActivate: [AuthGuard] },
+    { path: '', component: PostListComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
