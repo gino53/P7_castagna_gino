@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const path = require("path");
+const auth = require("./routes/user");
 const postRoutes = require("./routes/post");
 const app = express();
 
@@ -28,6 +29,8 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use("/images", express.static(path.join(__dirname, "images")));
+
+app.use("/api/auth", auth);
 
 app.use("/api/posts", postRoutes);
 

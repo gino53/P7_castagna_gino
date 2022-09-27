@@ -13,7 +13,7 @@ export class LandingComponent {
     private router: Router) { }
 
   public onLogin(): void {
-    this.auth.login(),
+    this.auth.loginUser,
       this.router.navigateByUrl('/posts');
   }
   

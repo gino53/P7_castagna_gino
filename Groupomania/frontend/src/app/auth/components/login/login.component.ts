@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { catchError, EMPTY, tap } from 'rxjs';
 import { AuthService } from 'src/app/@core/services/auth.service';
 
 @Component({
@@ -9,16 +11,34 @@ import { AuthService } from 'src/app/@core/services/auth.service';
 })
 export class LoginComponent {
 
-  constructor(private auth: AuthService,
-    private router: Router) { }
+  public loginForm!: FormGroup;
+  public errorMsg!: string;
 
-  onLogin(): void {
-    this.auth.login(),
-      this.router.navigateByUrl('/posts');
+  public constructor(private formBuilder: FormBuilder,
+    private auth: AuthService,
+    private router: Router) {
+    this.loginForm = this.formBuilder.group({
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, Validators.required]
+    });
   }
 
-  onSignUp(): void {
-    this.router.navigateByUrl('auth/signup');
+  public onLogin(): void {
+    const email = this.loginForm.get('email')!.value;
+    const password = this.loginForm.get('password')!.value;
+    this.auth.loginUser(email, password).pipe(
+      tap(() => {
+        this.router.navigate(['/posts']);
+      }),
+      catchError(error => {
+        this.errorMsg = error.message;
+        return EMPTY;
+      })
+    ).subscribe();
+  }
+
+  public onSignUp(): void {
+    this.router.navigateByUrl('signup');
   }
 
 }

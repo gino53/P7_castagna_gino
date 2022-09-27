@@ -1,11 +1,10 @@
 <div class="form-container">
-    <form>
+    <form [formGroup]="loginForm">
         <h2>Connexion</h2>
         <input type="email" placeholder="Email"><br>
         <input type="password" placeholder="Mot de passe"><br>
         <input type="button" (click)="onLogin()" value="Connexion"><br>
         <h4>Pas de compte ? <a (click)="onSignUp()">Créer un compte</a></h4>
-        
     </form>
     
     <div class="drop drop-1"></div>
