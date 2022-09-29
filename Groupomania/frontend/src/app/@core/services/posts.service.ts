@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post.model';
-import { catchError, map, Observable, of, Subject, switchMap, tap } from 'rxjs';
+import { catchError, map, Observable, Subject, switchMap, throwError } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -13,13 +13,10 @@ export class PostsService {
     public constructor(private http: HttpClient) { }
 
     getAllPosts() {
-        this.http.get<Post[]>('http://localhost:3000/api/posts').pipe(
-            tap(posts => this.posts$.next(posts)),
-            catchError(error => {
-                console.error(error.error.message);
-                return of([]);
-            })
-        ).subscribe();
+        this.http.get<Post[]>('http://localhost:3000/api/posts').pipe().subscribe({
+            next: (posts) => this.posts$.next(posts),
+            error: (error: any) => console.error(error.error.message)
+        });
     }
 
     public getPostById(postId: string): Observable<Post> {
@@ -32,6 +29,21 @@ export class PostsService {
         formData.append('image', image);
         return this.http.post<{ message: string }>('http://localhost:3000/api/posts', formData).pipe();
     }
+
+    public modifyPost(id: string, post: Post, image: string | File) {
+        if (typeof image === 'string') {
+          return this.http.put<{ message: string }>('http://localhost:3000/api/posts/' + id, post).pipe(
+            catchError(error => throwError(() => error.error.message))
+          );
+        } else {
+          const formData = new FormData();
+          formData.append('post', JSON.stringify(post));
+          formData.append('image', image);
+          return this.http.put<{ message: string }>('http://localhost:3000/api/posts/' + id, formData).pipe(
+            catchError(error => throwError(() => error.error.message))
+          );
+        }
+      }
 
     public likePost(postId: string, likeType: 'like' | 'unlike'): Observable<Post> {
         return this.getPostById(postId).pipe(
