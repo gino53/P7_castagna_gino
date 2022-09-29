@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { catchError, EMPTY, switchMap, tap } from 'rxjs';
+import { first, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/@core/services/auth.service';
 
 @Component({
@@ -28,14 +28,11 @@ export class SignupComponent {
     const password = this.signupForm.get('password')!.value;
     this.auth.createUser(email, password).pipe(
       switchMap(() => this.auth.loginUser(email, password)),
-      tap(() => {
-        this.router.navigate(['/posts']);
-      }),
-      catchError(error => {
-        this.errorMsg = error.message;
-        return EMPTY;
-      })
-    ).subscribe();
+      first()
+    ).subscribe({
+      next: () => this.router.navigate(['/posts']), 
+      error: (error: any) => this.errorMsg = error.message
+    });
   }
 
   public onLogin(): void {

@@ -1,8 +1,8 @@
 <div class="form-container">
     <form [formGroup]="signupForm">
         <h2>Inscription</h2>
-        <input type="email" placeholder="Email"><br>
-        <input type="password" placeholder="Mot de passe"><br>
+        <input type="email" placeholder="Email" formControlName="email"><br>
+        <input type="password" placeholder="Mot de passe" formControlName="password"><br>
         <input type="button" (click)="onSignup()" value="S'inscrire"><br>
         <h4>Déjà un compte ? <a (click)="onLogin()">Se connecter</a></h4>
     </form>
