@@ -14,9 +14,9 @@ export class PostListComponent {
   public posts$!: Observable<Post[]>;
   public errorMsg!: string;
 
-  public constructor(private post: PostsService,
+  public constructor(private postService: PostsService,
     private router: Router) {
-    this.posts$ = this.post.posts$.pipe(
+    this.posts$ = this.postService.posts$.pipe(
       tap(() => {
         this.errorMsg = '';
       }),
@@ -25,10 +25,10 @@ export class PostListComponent {
         return of([]);
       })
     );
-    this.post.getAllPosts();
+    this.postService.getAllPosts();
   }
 
-  onViewPost(id: string) {
+  public onViewPost(id: string) {
     this.router.navigate(['post', id]);
   }
 

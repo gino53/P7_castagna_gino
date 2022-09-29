@@ -18,10 +18,10 @@ export class SinglePostComponent {
 
   public constructor(private postsService: PostsService,
     private route: ActivatedRoute) {
-      this.post$ = this.route.params.pipe(
-        map(params => params['id']),
-        switchMap(id => this.postsService.getPostById(id)),
-      );
+    this.post$ = this.route.params.pipe(
+      map(params => params['id']),
+      switchMap(id => this.postsService.getPostById(id))
+    );
   }
 
 }

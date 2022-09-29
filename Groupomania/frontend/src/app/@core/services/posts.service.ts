@@ -12,7 +12,7 @@ export class PostsService {
 
     public constructor(private http: HttpClient) { }
 
-    getAllPosts() {
+    public getAllPosts() {
         this.http.get<Post[]>('http://localhost:3000/api/posts').pipe().subscribe({
             next: (posts) => this.posts$.next(posts),
             error: (error: any) => console.error(error.error.message)
@@ -32,18 +32,18 @@ export class PostsService {
 
     public modifyPost(id: string, post: Post, image: string | File) {
         if (typeof image === 'string') {
-          return this.http.put<{ message: string }>('http://localhost:3000/api/posts/' + id, post).pipe(
-            catchError(error => throwError(() => error.error.message))
-          );
+            return this.http.put<{ message: string }>('http://localhost:3000/api/posts/' + id, post).pipe(
+                catchError(error => throwError(() => error.error.message))
+            );
         } else {
-          const formData = new FormData();
-          formData.append('post', JSON.stringify(post));
-          formData.append('image', image);
-          return this.http.put<{ message: string }>('http://localhost:3000/api/posts/' + id, formData).pipe(
-            catchError(error => throwError(() => error.error.message))
-          );
+            const formData = new FormData();
+            formData.append('post', JSON.stringify(post));
+            formData.append('image', image);
+            return this.http.put<{ message: string }>('http://localhost:3000/api/posts/' + id, formData).pipe(
+                catchError(error => throwError(() => error.error.message))
+            );
         }
-      }
+    }
 
     public likePost(postId: string, likeType: 'like' | 'unlike'): Observable<Post> {
         return this.getPostById(postId).pipe(

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EMPTY, map, Observable, switchMap } from 'rxjs';
+import { EMPTY, first, map, Observable, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/@core/services/auth.service';
 import { Post } from '../../../@core/models/post.model';
 import { PostsService } from '../../../@core/services/posts.service';
@@ -35,7 +35,8 @@ export class NewPostComponent {
           this.mode = 'edit';
           return this.postService.getPostById(params['id'])
         }
-      })
+      }),
+      first()
     ).subscribe({
       next: (post: any) => {
         if (post) {
@@ -52,11 +53,12 @@ export class NewPostComponent {
         id: 0,
         createdDate: new Date(),
         likes: 0
-      }))
+      })),
+      first()
     );
   }
 
-  initEmptyForm() {
+  public initEmptyForm() {
     this.postForm = this.formBuilder.group({
       title: [null, Validators.required],
       description: [null, Validators.required],
@@ -67,7 +69,7 @@ export class NewPostComponent {
     });
   }
 
-  initModifyForm(post: Post) {
+  public initModifyForm(post: Post) {
     this.postForm = this.formBuilder.group({
       title: [post.title, Validators.required],
       description: [post.description, Validators.required],
