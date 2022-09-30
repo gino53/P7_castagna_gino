@@ -53,8 +53,7 @@ export class NewPostComponent {
         id: 0,
         createdDate: new Date(),
         likes: 0
-      })),
-      first()
+      }))
     );
   }
 

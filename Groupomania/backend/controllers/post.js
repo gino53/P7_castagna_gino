@@ -1,6 +1,6 @@
 const Post = require("../models/post");
 
-exports.getAllPost = (req, res, next) => {
+exports.getAllPosts = (req, res, next) => {
     Post.find()
         .then(posts => res.status(200).json(posts))
         .catch(error => res.status(400).json({ error }));
@@ -15,7 +15,9 @@ exports.getPostById = (req, res, next) => {
 exports.createPost = (req, res, next) => {
     const postObject = JSON.parse(req.body.post);
     delete postObject._id;
+    delete postObject._userId;
     const post = new Post({
+        userId: postObject.userId,
         title: postObject.title,
         imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
         description: postObject.description,

@@ -6,7 +6,7 @@
     <span id="location" *ngIf="post.location">Photo prise à {{ post.location }}</span>
     <p>{{ post.description }}</p>
     <span>
-        <span><i class="fa-regular fa-thumbs-up fa-lg"></i> {{ post.likes }}</span>
-        <span><i class="fa-regular fa-thumbs-down fa-lg"></i> {{ post.dislikes }}</span>
+        <span><i class="fa-regular fa-thumbs-up fa-lg" (click)="onLike()"></i> {{ post.likes }}</span>
+        <span><i class="fa-regular fa-thumbs-down fa-lg" (click)="onDislike()"></i> {{ post.dislikes }}</span>
     </span>
 </div>

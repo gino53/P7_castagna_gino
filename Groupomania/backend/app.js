@@ -32,6 +32,6 @@ app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use("/api/auth", auth);
 
-app.use("/api", postRoutes);
+app.use("/api/posts", postRoutes);
 
 module.exports = app;
