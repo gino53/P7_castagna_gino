@@ -9,6 +9,7 @@ const routes: Routes = [
     { path: 'create', component: NewPostComponent, canActivate: [AuthGuard] },
     { path: 'post/:id', component: SinglePostComponent, canActivate: [AuthGuard] },
     { path: '', component: PostListComponent, canActivate: [AuthGuard] },
+    { path: 'modify-post/:id', component: NewPostComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

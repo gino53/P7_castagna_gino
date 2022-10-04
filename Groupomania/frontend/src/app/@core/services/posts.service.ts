@@ -21,9 +21,9 @@ export class PostsService {
         });
     }
 
-    public getPostById(id: string): Observable<Post> {
+    public getPostById(id: string) {
         return this.http.get<Post>('http://localhost:3000/api/posts/' + id).pipe(
-            catchError(error => throwError(() => error.error.errorMessage))
+            catchError(error => throwError(() => error.error.message))
         );
     }
 
