@@ -4,8 +4,8 @@
         <div>
             <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fa-solid fa-house fa-xl"></i></a>
             <a routerLink="posts" routerLinkActive="active"><i class="fa-solid fa-images fa-xl"></i></a>
-            <a id="buttonAdd" (click)="onAddNewPost()"><i class="fa-solid fa-square-plus fa-xl"></i></a>
-            <a id="profil" (click)="onLogout()"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+            <a (click)="onAddNewPost()"><i class="fa-solid fa-square-plus fa-xl"></i></a>
+            <a (click)="onLogout()"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
         </div>
     </nav>
 </header>
