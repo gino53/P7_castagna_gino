@@ -6,6 +6,9 @@ import { CoreModule } from './@core/core.module';
 import { LandingModule } from './landing-page/landing-page.module';
 import { AuthModule } from './auth/auth.module';
 import { SharedModule } from './@shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { SharedModule } from './@shared/shared.module';
     CoreModule,
     SharedModule,
     LandingModule,
-    AuthModule
+    AuthModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    OverlayModule
   ],
   bootstrap: [AppComponent]
 })

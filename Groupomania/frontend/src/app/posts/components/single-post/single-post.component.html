@@ -1,10 +1,25 @@
-<a routerLink="/posts"><i class="fa-solid fa-arrow-left fa-xl"></i></a>
+<a routerLink="/posts"><i class="fa-solid fa-arrow-left fa-xl" id="arrow"></i></a>
 <div class="post-card" *ngIf="post$ | async as post">
-    <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
-    <h2>{{ post.title | titlecase }}</h2>
+    <div class="post-header">
+        <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
+        <a mat-icon-button [matMenuTriggerFor]="menu">
+            <i>
+                <mat-icon>more_vert</mat-icon>
+            </i>
+        </a>
+        <mat-menu #menu="matMenu">
+            <button mat-raised-button color="primary" (click)="onModify()"
+                *ngIf="userId === post.userId">Modifier</button>
+            <button mat-raised-button color="warn" (click)="onDelete()"
+                *ngIf="userId === post.userId">Supprimer</button>
+        </mat-menu>
+    </div>
+    <h3>{{ post.title | titlecase }}</h3>
     <img [src]="post.imageUrl" [alt]="post.title">
     <span id="location" *ngIf="post.location">Photo prise à {{ post.location }}</span>
-    <p>{{ post.description }}</p>
+    <div class="desc">
+        <p>{{ post.description }}</p>
+    </div>
     <span>
         <span><i class="fa-regular fa-thumbs-up fa-lg" (click)="onLike()"></i> {{ post.likes }}</span>
         <span><i class="fa-regular fa-thumbs-down fa-lg" (click)="onDislike()"></i> {{ post.dislikes }}</span>

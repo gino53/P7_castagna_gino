@@ -5,6 +5,8 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { SinglePostComponent } from './components/single-post/single-post.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostsRoutingModule } from './posts-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { PostsRoutingModule } from './posts-routing.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    PostsRoutingModule
+    PostsRoutingModule,
+    MatMenuModule,
+    MatIconModule
   ],
   exports: [
     PostListComponent,
