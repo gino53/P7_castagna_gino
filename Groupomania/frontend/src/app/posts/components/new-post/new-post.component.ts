@@ -62,7 +62,7 @@ export class NewPostComponent {
       title: [null, Validators.required],
       description: [null, Validators.required],
       image: [null, [Validators.required]],
-      location: [null]
+      location: [null, [Validators.required]]
     }, {
       updateOn: 'blur'
     });

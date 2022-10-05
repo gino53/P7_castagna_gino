@@ -39,7 +39,7 @@ export class SinglePostComponent {
 
   public onModify() {
     this.post$.pipe(take(1)).subscribe(
-      post => this.router.navigate(['/modify-post', post._id]));
+      post => this.router.navigate(['/create', post._id]));
   }
 
   public onDelete() {

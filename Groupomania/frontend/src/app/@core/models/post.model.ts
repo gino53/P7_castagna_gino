@@ -4,7 +4,7 @@ export class Post {
     public createdDate!: Date;
     public title!: string;
     public imageUrl!: string;
-    public location?: string;
+    public location!: string;
     public description!: string;
     public likes!: number;
     public dislikes!: number;
