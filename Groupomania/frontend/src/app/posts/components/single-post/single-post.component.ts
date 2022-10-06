@@ -14,6 +14,7 @@ export class SinglePostComponent {
 
   public post$!: Observable<Post>;
   public userId!: string;
+  public isAdmin!: string;
   public likePending!: boolean;
   public liked!: boolean;
   public disliked!: boolean;
@@ -24,6 +25,7 @@ export class SinglePostComponent {
     private auth: AuthService,
     private router: Router) {
     this.userId = this.auth.getUserId();
+    this.isAdmin = this.auth.getAdmin();
     this.post$ = this.route.params.pipe(
       map(params => params['id']),
       switchMap(id => this.postsService.getPostById(id)),
@@ -39,7 +41,7 @@ export class SinglePostComponent {
 
   public onModify() {
     this.post$.pipe(take(1)).subscribe(
-      post => this.router.navigate(['/create', post._id]));
+      post => this.router.navigate(['/modify-post', post._id]));
   }
 
   public onDelete() {

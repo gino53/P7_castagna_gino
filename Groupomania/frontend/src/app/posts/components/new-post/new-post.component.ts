@@ -25,6 +25,9 @@ export class NewPostComponent {
     private router: Router,
     private route: ActivatedRoute,
     private auth: AuthService) {
+
+    this.initModifyForm(new Post);
+
     this.route.params.pipe(
       switchMap(params => {
         if (!params['id']) {
@@ -47,14 +50,6 @@ export class NewPostComponent {
       error: (error: any) => this.errorMsg = JSON.stringify(error)
     });
 
-    this.postPreview$ = this.postForm.valueChanges.pipe(
-      map((formValue: Post) => ({
-        ...formValue,
-        id: 0,
-        createdDate: new Date(),
-        likes: 0
-      }))
-    );
   }
 
   public initEmptyForm() {
@@ -66,6 +61,14 @@ export class NewPostComponent {
     }, {
       updateOn: 'blur'
     });
+    this.postPreview$ = this.postForm.valueChanges.pipe(
+      map((formValue: Post) => ({
+        ...formValue,
+        id: 0,
+        createdDate: new Date(),
+        likes: 0
+      }))
+    );
   }
 
   public initModifyForm(post: Post) {
@@ -75,6 +78,14 @@ export class NewPostComponent {
       image: [post.imageUrl, Validators.required],
       location: [post.location, Validators.required],
     });
+    this.postPreview$ = this.postForm.valueChanges.pipe(
+      map((formValue: Post) => ({
+        ...formValue,
+        id: 0,
+        createdDate: new Date(),
+        likes: 0
+      }))
+    );
   }
 
   public onSubmitForm(): void {

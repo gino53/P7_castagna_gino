@@ -23,22 +23,22 @@ exports.login = (req, res, next) => {
         .then(user => {
             if (!user) {
                 return res.status(401).json({ error: "Utilisateur non trouvé !" });
-            }
-            bcrypt.compare(req.body.password, user.password)
-                .then(valid => {
-                    if (!valid) {
-                        return res.status(401).json({ error: "Mot de passe incorrect !" });
-                    }
-                    res.status(200).json({
-                        userId: user._id,
-                        token: jwt.sign(
-                            { userId: user._id },
-                            process.env.JWT_SECRET,
-                            { expiresIn: "24h" }
-                        )
+            } else {
+                bcrypt.compare(req.body.password, user.password)
+                    .then(valid => {
+                        if (!valid) {
+                            res.status(401).json({ error: "Mot de passe incorrect !" });
+                        } else {
+                            const token = jwt.sign(
+                                { userId: user._id, isAdmin: user.isAdmin },
+                                process.env.JWT_SECRET,
+                                { expiresIn: "24h" }
+                            );
+                            res.header('Authorization', 'Bearer' + token);
+                            return res.json({ token, userId: user._id, isAdmin: user.isAdmin })
+                        }
                     });
-                })
-                .catch(error => res.status(500).json({ error }));
+            }
         })
         .catch(error => res.status(500).json({ error }));
 };

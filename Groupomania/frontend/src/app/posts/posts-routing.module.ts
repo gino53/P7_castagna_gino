@@ -6,7 +6,8 @@ import { PostListComponent } from "./components/post-list/post-list.component";
 
 const routes: Routes = [
     { path: '', component: PostListComponent, canActivate: [AuthGuard] },
-    { path: 'modify-post/:id', component: NewPostComponent, canActivate: [AuthGuard] },
+    { path: 'create', component: NewPostComponent, canActivate: [AuthGuard] },
+    { path: 'modify-post/:id', component: NewPostComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

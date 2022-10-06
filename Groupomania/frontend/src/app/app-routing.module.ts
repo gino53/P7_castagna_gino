@@ -9,6 +9,7 @@ const routes: Routes = [
     { path: 'posts', loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule) },
     { path: 'create', component: NewPostComponent, canActivate: [AuthGuard] },
     { path: 'post/:id', component: SinglePostComponent, canActivate: [AuthGuard] },
+    { path: 'modify-post/:id', component: NewPostComponent, canActivate: [AuthGuard] },
     { path: 'form', loadChildren: () => import('./landing-page/landing-page.module').then(m => m.LandingModule) },
     { path: '', component: LandingComponent }
 ];
