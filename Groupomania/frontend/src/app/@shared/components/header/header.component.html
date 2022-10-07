@@ -2,10 +2,18 @@
     <nav>
         <img src="assets/Groupomania Logos/icon-left-font-monochrome-white.png" alt="Groupomania Logo">
         <div>
-            <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="fa-solid fa-house fa-xl"></i></a>
-            <a routerLink="posts" routerLinkActive="active"><i class="fa-solid fa-images fa-xl"></i></a>
-            <a (click)="onAddNewPost()"><i class="fa-solid fa-square-plus fa-xl"></i></a>
-            <a (click)="onLogout()"><i class="fa-solid fa-right-from-bracket fa-xl"></i></a>
+            <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon class="icon">home</mat-icon>
+            </a>
+            <a routerLink="posts" routerLinkActive="active">
+                <mat-icon class="icon">image</mat-icon>
+            </a>
+            <a (click)="onAddNewPost()">
+                <mat-icon class="icon">add_circle</mat-icon>
+            </a>
+            <a (click)="onLogout()">
+                <mat-icon class="icon">exit_to_app</mat-icon>
+            </a>
         </div>
     </nav>
 </header>

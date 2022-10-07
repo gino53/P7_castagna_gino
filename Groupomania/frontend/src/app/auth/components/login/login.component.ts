@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { first, switchMap} from 'rxjs';
+import { first, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/@core/services/auth.service';
 
 @Component({

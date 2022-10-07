@@ -9,8 +9,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 40%;
-        height: 80px;
+        width: 400px;
+        height: 100px;
         padding: 1rem;
         border-radius: 1.25rem;
         border-top: 1px solid rgba(255, 255, 255, .3);
@@ -23,41 +23,11 @@
     }
     
     h1 {
-        margin: 0 0 1rem;
+        margin: 1rem 0 0.625rem;
         font-weight: bold;
         color: white;
         opacity: .7;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-    }
-
-    input {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50%;
-        padding: 0.5rem;
-        border: none;
-        border-left: 1px solid rgba(255, 255, 255, .3);
-        border-top: 1px solid rgba(255, 255, 255, .3);
-        border-radius: 50px;
-        background: transparent;
-        box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
-        backdrop-filter: blur(5px);
-        -webkit-backdrop-filter: blur(5px);
-        -moz-backdrop-filter: blur(5px);
-        color: white;
-        font-size: 1rem;
-        font-weight: bold;
-        text-align: center;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-        transition: all .3s;
-        cursor: pointer;
-    }
-
-    input:hover,
-    input:focus {
-        background: rgba(255, 255, 255, .1);
-        box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);
     }
 }
 

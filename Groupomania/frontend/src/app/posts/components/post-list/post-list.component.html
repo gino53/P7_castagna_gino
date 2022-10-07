@@ -3,7 +3,7 @@
         Aucun post à afficher
     </p>
     <div class="post-list" *ngIf="posts.length > 0">
-        <div class="post-card" *ngFor="let post of posts" (click)="onViewPost(post._id)" >
+        <div class="post-card" *ngFor="let post of posts" (click)="onViewPost(post._id)">
             <h2>{{ post.title | titlecase }}</h2>
             <img [src]="post.imageUrl" [alt]="post.title">
         </div>

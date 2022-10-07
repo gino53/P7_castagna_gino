@@ -1,6 +1,10 @@
-#arrow {
+#return {
+    width: 34px;
+    height: 34px;
+    font-size: 34px;
     padding-left: 0.625rem;
     color: #FFD7D7;
+    transition: all 0.2s;
 
     &:hover {
         transform: scale(110%);
@@ -29,7 +33,7 @@
         align-items: center;
     }
 
-    i {
+    .icon {
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -85,9 +89,8 @@
         margin-top: 10px;
     }
 
-    span i {
+    span .icon {
         margin-right: 6px;
-        color: #FFD7D7;
         cursor: pointer;
     }
 

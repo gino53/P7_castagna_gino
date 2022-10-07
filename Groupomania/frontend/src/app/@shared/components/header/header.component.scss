@@ -19,10 +19,14 @@ div {
     align-items: center;
 }
 
-i {
+.icon {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
     color: rgba(255, 255, 255, .5);
     box-shadow: 10px 10px 60px -8px rgba(0, 0, 0, 0.2);
     transition: all 0.2s;
+
     &:hover {
         transform: scale(110%);
         color: rgba(255, 255, 255, .8);
@@ -62,6 +66,7 @@ i {
     0% {
         background-position: 0 0;
     }
+
     0% {
         background-position: 500% 0;
     }

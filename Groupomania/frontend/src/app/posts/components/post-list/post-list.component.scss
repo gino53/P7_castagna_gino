@@ -1,41 +1,40 @@
 .post-list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .post-card {
-    box-sizing: border-box;
-    width: 60%;
-    margin: 1.25rem auto;
-    padding: 0 0 2rem;
-    border-radius: 1.25rem;
-    border-top: 1px solid rgba(255, 255, 255, .3);
-    border-left: 1px solid rgba(255, 255, 255, .3);
-    background-color: rgba(255, 255, 255, .3);
-    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
-    text-align: center;
-    transition: all .3s;
-    cursor: pointer;
-  }
-  
-  h2 {
-    font-weight: bold;
-    color: white;
-    opacity: .7;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
-  }
-  
-  img {
-    width: 80%;
-    border-radius: 1.25rem;
-  }
-  
-  .post-card:hover,
-  .post-card:focus
-  {
-    background: rgba(255, 255, 255, .4);
-    box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);
-  }
+  box-sizing: border-box;
+  width: 60%;
+  margin: 1.25rem auto;
+  padding: 0 0 2rem;
+  border-radius: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, .3);
+  border-left: 1px solid rgba(255, 255, 255, .3);
+  background-color: rgba(255, 255, 255, .3);
+  box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  text-align: center;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+h2 {
+  font-weight: bold;
+  color: white;
+  opacity: .7;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+
+img {
+  width: 80%;
+  border-radius: 1.25rem;
+}
+
+.post-card:hover,
+.post-card:focus {
+  background: rgba(255, 255, 255, .4);
+  box-shadow: 4px 4px 60px 8px rgba(0, 0, 0, .2);
+}

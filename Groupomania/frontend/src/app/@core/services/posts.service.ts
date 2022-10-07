@@ -57,21 +57,21 @@ export class PostsService {
 
     public likePost(id: string, like: boolean) {
         return this.http.post<{ message: string }>(
-          'http://localhost:3000/api/posts/' + id + '/like',
-          { userId: this.auth.getUserId(), like: like ? 1 : 0 }
+            'http://localhost:3000/api/posts/' + id + '/like',
+            { userId: this.auth.getUserId(), like: like ? 1 : 0 }
         ).pipe(
-          map(() => like),
-          catchError(error => throwError(() => error.error.message))
+            map(() => like),
+            catchError(error => throwError(() => error.error.message))
         );
-      }
+    }
 
-      public dislikePost(id: string, dislike: boolean) {
+    public dislikePost(id: string, dislike: boolean) {
         return this.http.post<{ message: string }>(
-          'http://localhost:3000/api/posts/' + id + '/like',
-          { userId: this.auth.getUserId(), like: dislike ? -1 : 0 }
+            'http://localhost:3000/api/posts/' + id + '/like',
+            { userId: this.auth.getUserId(), like: dislike ? -1 : 0 }
         ).pipe(
-          map(() => dislike),
-          catchError(error => throwError(() => error.error.message))
+            map(() => dislike),
+            catchError(error => throwError(() => error.error.message))
         );
-      }
+    }
 }

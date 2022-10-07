@@ -15,10 +15,10 @@ export class AuthService {
   private isAdmin: string = '';
 
   public constructor(private http: HttpClient,
-    private router: Router) { 
-      this.userId = this.authToken ? JSON.parse(Buffer.from(this.authToken.split('.')[1], 'base64').toString()) : '';
-      console.log(this.userId);
-    }
+    private router: Router) {
+    this.userId = this.authToken ? JSON.parse(Buffer.from(this.authToken.split('.')[1], 'base64').toString()) : '';
+    console.log(this.userId);
+  }
 
   public createUser(email: string, password: string) {
     return this.http.post<{ message: string }>('http://localhost:3000/api/auth/signup', { email: email, password: password });
@@ -33,7 +33,11 @@ export class AuthService {
   }
 
   public getAdmin() {
-    return this.isAdmin;
+    return this.getUserId() === this.isAdmin === true;
+  }
+
+  public valueLocalStorage() {
+    return [this.getUserId(), this.getToken()]
   }
 
   public loginUser(email: string, password: string) {

@@ -14,7 +14,7 @@ export class SinglePostComponent {
 
   public post$!: Observable<Post>;
   public userId!: string;
-  public isAdmin!: string;
+  public isAdmin!: boolean;
   public likePending!: boolean;
   public liked!: boolean;
   public disliked!: boolean;

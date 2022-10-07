@@ -1,11 +1,11 @@
-<a routerLink="/posts"><i class="fa-solid fa-arrow-left fa-xl" id="arrow"></i></a>
+<a routerLink="/posts">
+    <mat-icon class="icon" id="return">arrow_back</mat-icon>
+</a>
 <div class="post-card" *ngIf="post$ | async as post">
     <div class="post-header">
         <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
         <a mat-icon-button [matMenuTriggerFor]="menu" *ngIf="userId === post.userId">
-            <i>
-                <mat-icon>more_vert</mat-icon>
-            </i>
+            <mat-icon class="icon">more_vert</mat-icon>
         </a>
         <mat-menu #menu="matMenu">
             <button mat-menu-item color="primary" (click)="onModify()"><span>Modifier</span></button>
@@ -19,7 +19,11 @@
         <p>{{ post.description }}</p>
     </div>
     <span>
-        <span><i class="fa-regular fa-thumbs-up fa-lg" (click)="onLike()"></i> {{ post.likes }}</span>
-        <span><i class="fa-regular fa-thumbs-down fa-lg" (click)="onDislike()"></i> {{ post.dislikes }}</span>
+        <span>
+            <mat-icon class="icon" (click)="onLike()">thumb_up</mat-icon> {{ post.likes }}
+        </span>
+        <span>
+            <mat-icon class="icon" (click)="onDislike()">thumb_down</mat-icon> {{ post.dislikes }}
+        </span>
     </span>
 </div>
