@@ -6,7 +6,7 @@
         <input type="text" id="location" formControlName="location" maxlength="20" placeholder="Lieu">
         <textarea type="text" id="description" formControlName="description" rows="2" maxlength="150"
             placeholder="Description"></textarea>
-        <input type="button" (click)="onSubmitForm()" [disabled]="postForm.invalid" value="Enregistrer">
+        <button type="submit" (click)="onSubmitForm()" [disabled]="postForm.invalid">Enregistrer</button>
     </form>
 
     <div class="drop drop-1"></div>

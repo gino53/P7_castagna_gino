@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first, switchMap } from 'rxjs';
 import { AuthService } from 'src/app/@core/services/auth.service';
@@ -14,12 +14,11 @@ export class SignupComponent {
   public signupForm!: FormGroup;
   public errorMsg!: string;
 
-  public constructor(private formBuilder: FormBuilder,
-    private auth: AuthService,
+  public constructor(private auth: AuthService,
     private router: Router) {
-    this.signupForm = this.formBuilder.group({
-      email: [null, [Validators.required, Validators.email]],
-      password: [null, Validators.required]
+    this.signupForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required)
     });
   }
 
@@ -30,7 +29,7 @@ export class SignupComponent {
       switchMap(() => this.auth.loginUser(email, password)),
       first()
     ).subscribe({
-      next: () => this.router.navigate(['/posts']), 
+      next: () => this.router.navigate(['/posts']),
       error: (error: any) => this.errorMsg = error.message
     });
   }
