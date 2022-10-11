@@ -79,19 +79,18 @@ $planets: (
     ('ear', 36.5s*$baseUnit, (15px*$rFactor)+$sunRad, 3.5px, #4b94f9),
     ('mar', 68.7s*$baseUnit, (23px*$rFactor)+$sunRad, 3px, #dd411a),
     ('jup', 433.2s*$baseUnit, (78px*$rFactor)+$sunRad, 35px, #eaad3b),
-    ('sat', 1075.9s*$baseUnit, (145px*$rFactor)+$sunRad, 29px, #d6cd93),
-    ('ura', 3068.7s*$baseUnit, (200px*$rFactor)+$sunRad, 13px, #bfeef2)
+    ('sat', 1075.9s*$baseUnit, (145px*$rFactor)+$sunRad, 29px, #d6cd93)
 );
 
 body {
-    height: 70vh;
+    height: 85vh;
     overflow: hidden;
 }
 
 
 .system {
     position: relative;
-    top: 0;
+    top: -60px;
     left: 0;
     width: 50%;
     height: 80%;
