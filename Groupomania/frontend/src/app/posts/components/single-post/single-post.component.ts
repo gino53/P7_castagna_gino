@@ -30,6 +30,7 @@ export class SinglePostComponent {
       map(params => params['id']),
       switchMap(id => this.postsService.getPostById(id)),
       tap(post => {
+        this.isAdmin;
         if (post.usersLiked.find(user => user === this.userId)) {
           this.liked = true;
         } else if (post.usersDisliked.find(user => user === this.userId)) {

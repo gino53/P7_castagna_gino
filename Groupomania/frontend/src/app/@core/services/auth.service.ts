@@ -12,12 +12,12 @@ export class AuthService {
   public authToken: string | null = localStorage.getItem(this.tokenLocalStorageKey);
   public readonly isAuth$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(!!this.authToken);
   private userId: string = '';
-  private isAdmin: string = '';
+  private isAdmin: boolean = false;
 
   public constructor(private http: HttpClient,
     private router: Router) {
-    this.userId = this.authToken ? JSON.parse(Buffer.from(this.authToken.split('.')[1], 'base64').toString()) : '';
-    console.log(this.userId);
+    this.userId = this.authToken ? JSON.parse(Buffer.from(this.authToken.split('.')[1], 'base64').toString())?.userId : '';
+    this.isAdmin = this.authToken ? JSON.parse(Buffer.from(this.authToken.split('.')[1], 'base64').toString())?.isAdmin : false;
   }
 
   public createUser(email: string, password: string) {
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   public getAdmin() {
-    return this.getUserId() === this.isAdmin === true;
+    return this.isAdmin;
   }
 
   public valueLocalStorage() {
