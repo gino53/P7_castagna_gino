@@ -98,11 +98,14 @@ button:focus {
   color: white;
 }
 
+.email, .password {
+  margin-bottom: 1.625rem;
+}
+
 .error {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.625rem;
   color: red;
 }
 

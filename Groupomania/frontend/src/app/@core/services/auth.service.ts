@@ -36,14 +36,11 @@ export class AuthService {
     return this.isAdmin;
   }
 
-  public valueLocalStorage() {
-    return [this.getUserId(), this.getToken()]
-  }
-
   public loginUser(email: string, password: string) {
-    return this.http.post<{ userId: string, token: string }>('http://localhost:3000/api/auth/login', { email: email, password: password }).pipe(
-      tap(({ userId, token }) => {
+    return this.http.post<{ userId: string, isAdmin: boolean, token: string }>('http://localhost:3000/api/auth/login', { email: email, password: password }).pipe(
+      tap(({ userId, isAdmin, token }) => {
         this.userId = userId;
+        this.isAdmin = isAdmin;
         this.authToken = token;
         this.isAuth$.next(true);
         localStorage.setItem(this.tokenLocalStorageKey, token);

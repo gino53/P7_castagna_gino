@@ -1,13 +1,18 @@
 <div class="form-container">
     <form [formGroup]="signupForm">
         <h2>Inscription</h2>
-        <span class="error" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">Email invalide</span>
-        <input type="email" placeholder="Email" formControlName="email"><br>
-        <input type="password" placeholder="Mot de passe" formControlName="password"><br>
-        <button type="submit" [disabled]="signupForm.invalid" (click)="onSignup()">S'inscrire</button><br>
+        <div class="email">
+            <input type="email" placeholder="Email" formControlName="email">
+            <span class="error" *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">Email invalide</span>
+        </div>
+        <div class="password">
+            <input type="password" placeholder="Mot de passe" formControlName="password">
+            <span class="error" *ngIf="errorMsg">{{ 'Mot de passe: 8-100 caractères, majuscule/minuscule, chiffre' }}</span>
+        </div>
+        <button type="submit" [disabled]="signupForm.invalid" (click)="onSignup()">S'inscrire</button>
         <h4>Déjà un compte ? <a (click)="onLogin()">Se connecter</a></h4>
     </form>
-    
+
     <div class="drop drop-1"></div>
     <div class="drop drop-2"></div>
     <div class="drop drop-3"></div>
