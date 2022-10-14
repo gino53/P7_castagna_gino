@@ -93,8 +93,8 @@ export class NewPostComponent {
     newPost.title = this.postForm.get('title')!.value;
     newPost.description = this.postForm.get('description')!.value;
     newPost.location = this.postForm.get('location')!.value;
-    newPost.userId = this.auth.getUserId();
     if (this.mode === 'new') {
+      newPost.userId = this.auth.getUserId();
       this.postService.createPost(newPost, this.postForm.get('image')!.value).pipe().subscribe({
         next: () => this.router.navigate(['/posts']),
         error: (error: any) => this.errorMsg = error.message
