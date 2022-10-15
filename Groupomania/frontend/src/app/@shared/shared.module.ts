@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
@@ -11,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     RouterModule,
+    MatMenuModule,
     MatIconModule
   ],
   exports: [

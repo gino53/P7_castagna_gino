@@ -3,22 +3,51 @@
         <img src="assets/Groupomania Logos/icon-left-font-monochrome-white.png" alt="Groupomania Logo">
         <ul>
             <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                <span><mat-icon class="icon">home</mat-icon></span>
+                <span>
+                    <mat-icon class="icon">home</mat-icon>
+                </span>
                 <span class="title">Menu</span>
             </li>
             <li routerLink="posts" routerLinkActive="active">
-                <span><mat-icon class="icon">image</mat-icon></span>
+                <span>
+                    <mat-icon class="icon">image</mat-icon>
+                </span>
                 <span class="title">Posts</span>
             </li>
             <li (click)="onAddNewPost()">
-                <span><mat-icon class="icon">add_circle</mat-icon></span>
+                <span>
+                    <mat-icon class="icon">add_circle</mat-icon>
+                </span>
                 <span class="title">Nouveau</span>
             </li>
             <li (click)="onLogout()">
-                <span><mat-icon class="icon">exit_to_app</mat-icon></span>
+                <span>
+                    <mat-icon class="icon">exit_to_app</mat-icon>
+                </span>
                 <span class="title">Deconnexion</span>
             </li>
         </ul>
+        <a mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>menu</mat-icon>
+        </a>
+        <mat-menu #menu="matMenu">
+            <button class="button-menu" mat-menu-item routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon class="icon-menu">home</mat-icon>
+                <span>Menu</span>
+            </button>
+            <button class="button-menu" mat-menu-item routerLink="posts" routerLinkActive="active">
+                <mat-icon class="icon-menu">image</mat-icon>
+                <span>Posts</span>
+            </button>
+            <button class="button-menu" mat-menu-item (click)="onAddNewPost()">
+                <mat-icon class="icon-menu">add_circle</mat-icon>
+                <span>Nouveau</span>
+            </button>
+            <button class="button-menu" mat-menu-item (click)="onLogout()">
+                <mat-icon class="icon-menu">exit_to_app</mat-icon>
+                <span>Deconnexion</span>
+            </button>
+        </mat-menu>
     </nav>
 </header>
 <div class="border"></div>

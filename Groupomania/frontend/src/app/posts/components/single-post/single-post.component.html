@@ -4,13 +4,10 @@
 <div class="post-card" *ngIf="post$ | async as post">
     <div class="post-header">
         <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
-        <a mat-icon-button [matMenuTriggerFor]="menu" *ngIf="this.isAdmin === true || userId === post.userId">
-            <mat-icon class="icon">more_vert</mat-icon>
+        <a mat-icon-button *ngIf="this.isAdmin === true || userId === post.userId">
+            <mat-icon class="icon" (click)="onModify()">edit</mat-icon>
+            <mat-icon class="icon" (click)="onDelete()">delete</mat-icon>
         </a>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item color="primary" (click)="onModify()"><span>Modifier</span></button>
-            <button mat-menu-item color="warn" (click)="onDelete()"><span>Supprimer</span></button>
-        </mat-menu>
     </div>
     <h3>{{ post.title | titlecase }}</h3>
     <img [src]="post.imageUrl" [alt]="post.title">

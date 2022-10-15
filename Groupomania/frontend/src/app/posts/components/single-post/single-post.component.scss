@@ -33,6 +33,10 @@
         align-items: center;
     }
 
+    a {
+        display: flex;
+    }
+
     .icon {
         display: flex;
         justify-content: flex-end;

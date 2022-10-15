@@ -112,6 +112,56 @@ ul li:hover .title {
     transition-delay: 0.25s;
 }
 
+a {
+    display: none;
+}
+
+::ng-deep .mat-menu-panel {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    ul {
+        display: none;
+    }
+
+    a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #FFD7D7;
+        box-shadow: 10px 10px 60px -8px rgba(0, 0, 0, 0.2);
+        transition: all 0.2s;
+
+        &:hover {
+            transform: scale(110%);
+        }
+    }
+
+    ::ng-deep .mat-menu-panel {
+        display: block;
+        background: #4E5166;
+    }
+
+    .button-menu.mat-menu-item {
+        width: 100%;
+        border-radius: 0%;
+        margin: 0%;
+        color: #FFD7D7;
+        transition: 0.3s;
+    }
+
+    .icon-menu {
+        color: #FFD7D7;
+    }
+
+    button:hover,
+    button:focus {
+        background: none;
+        box-shadow: none;
+    }
+}
+
 .border {
     position: relative;
     bottom: 1.25rem;
