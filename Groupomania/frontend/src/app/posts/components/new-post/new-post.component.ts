@@ -90,6 +90,7 @@ export class NewPostComponent {
 
   public onSubmitForm(): void {
     const newPost = new Post();
+    newPost.createdDate = new Date();
     newPost.title = this.postForm.get('title')!.value;
     newPost.description = this.postForm.get('description')!.value;
     newPost.location = this.postForm.get('location')!.value;

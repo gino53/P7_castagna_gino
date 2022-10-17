@@ -21,6 +21,7 @@ exports.createPost = (req, res, next) => {
     delete postObject._userId;
     const post = new Post({
         userId: postObject.userId,
+        createdDate: postObject.date,
         title: postObject.title,
         imageUrl: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`,
         description: postObject.description,
