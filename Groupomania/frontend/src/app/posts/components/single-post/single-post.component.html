@@ -1,26 +1,28 @@
 <a routerLink="/posts">
     <mat-icon class="icon" id="return">arrow_back</mat-icon>
 </a>
-<div class="post-card" *ngIf="post$ | async as post">
-    <div class="post-header">
-        <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
-        <a mat-icon-button *ngIf="this.isAdmin === true || userId === post.userId">
-            <mat-icon class="icon" (click)="onModify()">edit</mat-icon>
-            <mat-icon class="icon" (click)="onDelete()">delete</mat-icon>
-        </a>
-    </div>
-    <h3>{{ post.title | titlecase }}</h3>
-    <img [src]="post.imageUrl" [alt]="post.title">
-    <span id="location" *ngIf="post.location">Photo prise à {{ post.location }}</span>
-    <div class="desc">
-        <p>{{ post.description }}</p>
-    </div>
-    <span>
+<div class="post-container">
+    <div class="post-card" *ngIf="post$ | async as post">
+        <div class="post-header">
+            <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
+            <a mat-icon-button *ngIf="this.isAdmin === true || userId === post.userId">
+                <mat-icon class="icon" (click)="onModify()">edit</mat-icon>
+                <mat-icon class="icon" (click)="onDelete()">delete</mat-icon>
+            </a>
+        </div>
+        <h3>{{ post.title | titlecase }}</h3>
+        <img [src]="post.imageUrl" [alt]="post.title">
+        <span id="location" *ngIf="post.location">Photo prise à {{ post.location }}</span>
+        <div class="desc">
+            <p>{{ post.description }}</p>
+        </div>
         <span>
-            <mat-icon class="icon" (click)="onLike()">thumb_up</mat-icon> {{ post.likes }}
+            <span>
+                <mat-icon class="icon" (click)="onLike()">thumb_up</mat-icon> {{ post.likes }}
+            </span>
+            <span>
+                <mat-icon class="icon" (click)="onDislike()">thumb_down</mat-icon> {{ post.dislikes }}
+            </span>
         </span>
-        <span>
-            <mat-icon class="icon" (click)="onDislike()">thumb_down</mat-icon> {{ post.dislikes }}
-        </span>
-    </span>
+    </div>
 </div>

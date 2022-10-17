@@ -11,12 +11,16 @@
     }
 }
 
+.post-container {
+    display: flex;
+}
+
 .post-card {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     width: 70%;
-    margin: 5rem auto;
+    margin: 4rem auto;
     padding: 1rem;
     border-radius: 1.25rem;
     border-top: 1px solid rgba(255, 255, 255, .3);

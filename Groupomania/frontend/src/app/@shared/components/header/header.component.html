@@ -1,6 +1,7 @@
 <header>
     <nav>
-        <img src="assets/Groupomania Logos/icon-left-font-monochrome-white.png" alt="Groupomania Logo">
+        <img class="logo" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            src="assets/Groupomania Logos/icon-left-font-monochrome-white.png" alt="Groupomania Logo">
         <ul>
             <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
                 <span>
@@ -27,11 +28,12 @@
                 <span class="title">Deconnexion</span>
             </li>
         </ul>
-        <a mat-icon-button [matMenuTriggerFor]="menu">
+        <a class="menu" mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>menu</mat-icon>
         </a>
         <mat-menu #menu="matMenu">
-            <button class="button-menu" mat-menu-item routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <button class="button-menu" mat-menu-item routerLink="" routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }">
                 <mat-icon class="icon-menu">home</mat-icon>
                 <span>Menu</span>
             </button>
