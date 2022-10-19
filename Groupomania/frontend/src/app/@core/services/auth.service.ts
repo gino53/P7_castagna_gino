@@ -24,15 +24,15 @@ export class AuthService {
     return this.http.post<{ message: string }>('http://localhost:3000/api/auth/signup', { email: email, password: password });
   }
 
-  public getToken() {
+  public getToken(): string | null {
     return this.authToken;
   }
 
-  public getUserId() {
+  public getUserId(): string {
     return this.userId;
   }
 
-  public getAdmin() {
+  public getAdmin(): boolean {
     return this.isAdmin;
   }
 
@@ -48,7 +48,7 @@ export class AuthService {
     );
   }
 
-  public logout() {
+  public logout(): void {
     this.authToken = '';
     this.userId = '';
     localStorage.removeItem(this.tokenLocalStorageKey);

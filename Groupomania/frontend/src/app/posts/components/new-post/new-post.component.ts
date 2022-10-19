@@ -52,7 +52,7 @@ export class NewPostComponent {
 
   }
 
-  public initEmptyForm() {
+  public initEmptyForm(): void {
     this.postForm = this.formBuilder.group({
       title: [null, Validators.required],
       description: [null, Validators.required],
@@ -71,7 +71,7 @@ export class NewPostComponent {
     );
   }
 
-  public initModifyForm(post: Post) {
+  public initModifyForm(post: Post): void {
     this.postForm = this.formBuilder.group({
       title: [post.title, Validators.required],
       description: [post.description, Validators.required],
@@ -108,7 +108,7 @@ export class NewPostComponent {
     }
   }
 
-  public onImageAdded(event: Event) {
+  public onImageAdded(event: Event): void {
     const file = (event.target as HTMLInputElement).files![0];
     this.postForm.get('image')!.setValue(file);
     this.postForm.updateValueAndValidity();

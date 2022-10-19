@@ -30,7 +30,6 @@ export class SinglePostComponent {
       map(params => params['id']),
       switchMap(id => this.postsService.getPostById(id)),
       tap(post => {
-        this.isAdmin;
         if (post.usersLiked.find(user => user === this.userId)) {
           this.liked = true;
         } else if (post.usersDisliked.find(user => user === this.userId)) {
@@ -40,12 +39,12 @@ export class SinglePostComponent {
     );
   }
 
-  public onModify() {
+  public onModify(): void {
     this.post$.pipe(take(1)).subscribe(
       post => this.router.navigate(['/modify-post', post._id]));
   }
 
-  public onDelete() {
+  public onDelete(): void {
     this.post$.pipe(
       take(1),
       switchMap(post => this.postsService.deletePost(post._id))
@@ -58,7 +57,7 @@ export class SinglePostComponent {
     });
   }
 
-  public onLike() {
+  public onLike(): void {
     if (this.disliked) {
       return;
     }
@@ -76,7 +75,7 @@ export class SinglePostComponent {
     ).subscribe();
   }
 
-  public onDislike() {
+  public onDislike(): void {
     if (this.liked) {
       return;
     }

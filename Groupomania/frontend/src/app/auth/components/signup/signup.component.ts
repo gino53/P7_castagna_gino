@@ -22,7 +22,7 @@ export class SignupComponent {
     });
   }
 
-  public onSignup() {
+  public onSignup(): void {
     const email = this.signupForm.get('email')!.value;
     const password = this.signupForm.get('password')!.value;
     this.auth.createUser(email, password).pipe(

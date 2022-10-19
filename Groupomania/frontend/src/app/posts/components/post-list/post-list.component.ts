@@ -28,7 +28,7 @@ export class PostListComponent {
     this.postService.getAllPosts();
   }
 
-  public onViewPost(id: string) {
+  public onViewPost(id: string): void {
     this.router.navigate(['post', id]);
   }
 

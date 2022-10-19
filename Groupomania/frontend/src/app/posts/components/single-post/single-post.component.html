@@ -5,7 +5,7 @@
     <div class="post-card" *ngIf="post$ | async as post">
         <div class="post-header">
             <h4>Mis en ligne le {{ post.createdDate | date: 'longDate'}}</h4>
-            <a mat-icon-button *ngIf="this.isAdmin === true || userId === post.userId">
+            <a mat-icon-button *ngIf="this.isAdmin || userId === post.userId">
                 <mat-icon class="icon" (click)="onModify()">edit</mat-icon>
                 <mat-icon class="icon" (click)="onDelete()">delete</mat-icon>
             </a>
